@@ -278,7 +278,7 @@ function resetFilters() {
 }
 
 // Function to enhance job data for the new JobCard component
-const enhanceJobData = (job) => {
+const enhanceJobData = (job: any) => {
   return {
     ...job,
     postedDate: job.postedDate || new Date().toLocaleDateString(),

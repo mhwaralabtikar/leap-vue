@@ -19,7 +19,7 @@ export interface BlogPost {
 
 export const useBlogStore = defineStore('blog', () => {
   // Sample blog posts data
-  const blogPosts = ref<BlogPost[]>([
+  const blogPosts = ref([
     {
       id: 'construction-project-management',
       title: 'The Future of Construction Project Management',
@@ -95,7 +95,7 @@ export const useBlogStore = defineStore('blog', () => {
       tags: ['Scheduling', 'Optimization', 'Construction'],
       readTime: 9
     }
-  ])
+  ] as BlogPost[]) 
 
   // Featured post is the first blog post
   const featuredPost = computed(() => blogPosts.value[0])

@@ -1,122 +1,136 @@
 import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export interface Service {
+  id: string
+  title: string
+  description: string
+  icon: string
+  features?: string[]
+  imageUrl?: string
+  link?: string
+}
 
 export const useServicesStore = defineStore('services', () => {
-  // Services data
-  const services = [
+  // Sample services data
+  const services = ref<Service[]>([
     {
       id: 'project-controls',
       title: 'Project Controls',
-      description: 'Comprehensive project controls services including cost tracking, performance measurement, and variance analysis.',
-      imageUrl: 'https://picsum.photos/id/311/600/400',
-      link: '/services/project-controls',
-      icon: 'chart-bar'
+      description: 'Comprehensive oversight and management of project scope, schedule, and cost to ensure successful project delivery.',
+      icon: 'layers',
+      features: [
+        'Project performance monitoring',
+        'Progress tracking and reporting',
+        'Schedule and cost integration',
+        'Change management procedures'
+      ]
     },
     {
       id: 'cost-management',
       title: 'Cost Management',
-      description: 'Strategic cost management services focused on budget development, cost estimation, and financial oversight.',
-      imageUrl: 'https://picsum.photos/id/334/600/400',
-      link: '/services/cost-management',
-      icon: 'dollar-sign'
+      description: 'Detailed budgeting, forecasting, and cost control with ERP integration and variance analysis.',
+      icon: 'dollar-sign',
+      features: [
+        'Budget development and tracking',
+        'Cost estimation and forecasting',
+        'Earned value management',
+        'Value engineering'
+      ]
+    },
+    {
+      id: 'scheduling',
+      title: 'Scheduling',
+      description: 'Development and management of project schedules using advanced planning techniques and software.',
+      icon: 'calendar',
+      features: [
+        'Master schedule development',
+        'Critical path analysis',
+        'Resource optimization',
+        'Schedule risk assessment'
+      ]
+    },
+    {
+      id: 'document-control',
+      title: 'Document Control',
+      description: 'Complete document management solutions for tracking, storage, and retrieval of project documentation.',
+      icon: 'file-text',
+      features: [
+        'Document tracking systems',
+        'Version control procedures',
+        'Approval workflows',
+        'Document retrieval systems'
+      ]
+    },
+    {
+      id: '4d-bim-modeling',
+      title: '4D BIM Modeling',
+      description: 'Integration of 3D models with project schedules to visualize project timelines and optimize planning.',
+      icon: 'bar-chart-2',
+      features: [
+        'Schedule visualization',
+        'Clash detection',
+        'Construction sequencing',
+        'What-if scenario analysis'
+      ]
     },
     {
       id: 'claims-management',
       title: 'Claims Management',
-      description: 'Expert claims management services to address disputes, evaluate delay claims, and provide resolution strategies.',
-      imageUrl: 'https://picsum.photos/id/360/600/400',
-      link: '/services/claims-management',
-      icon: 'file-text'
-    },
-    {
-      id: '4d-bim-modeling',
-      title: '4D-BIM Modeling',
-      description: 'Advanced 4D BIM modeling services to integrate scheduling with 3D models for enhanced visualization and coordination.',
-      imageUrl: 'https://picsum.photos/id/364/600/400',
-      link: '/services/4d-bim-modeling',
-      icon: 'layers'
-    },
-    {
-      id: 'planning-schedule-management',
-      title: 'Planning & Schedule Management',
-      description: 'Comprehensive planning and scheduling services including baseline development, progress monitoring, and schedule optimization.',
-      imageUrl: 'https://picsum.photos/id/259/600/400',
-      link: '/services/planning-schedule-management',
-      icon: 'calendar'
-    },
-    {
-      id: 'training-development',
-      title: 'Training & Development Services',
-      description: 'Industry-focused training programs offering online, live, and offline sessions to enhance project management skills.',
-      imageUrl: 'https://picsum.photos/id/180/600/400',
-      link: '/services/training-development',
-      icon: 'book-open'
+      description: 'Expert preparation and analysis of time and cost-related claims following international standards.',
+      icon: 'alert-triangle',
+      features: [
+        'Delay analysis',
+        'Extension of time claims',
+        'Disruption assessments',
+        'Expert witness services'
+      ]
     },
     {
       id: 'risk-management',
       title: 'Risk Management',
-      description: 'Identification, analysis, and mitigation of project risks through detailed risk planning and monitoring.',
-      imageUrl: 'https://picsum.photos/id/355/600/400',
-      link: '/services/risk-management',
-      icon: 'alert-triangle'
+      description: 'Identification, assessment, and mitigation of project risks to ensure successful project outcomes.',
+      icon: 'shield',
+      features: [
+        'Risk identification workshops',
+        'Qualitative and quantitative analysis',
+        'Risk response planning',
+        'Risk monitoring and control'
+      ]
     },
     {
-      id: 'advanced-reporting',
-      title: 'Advanced Reporting Systems Development',
-      description: 'Design of automated, dynamic reporting solutions using Power BI and other tools to support decision-making.',
-      imageUrl: 'https://picsum.photos/id/365/600/400',
-      link: '/services/advanced-reporting',
-      icon: 'bar-chart-2'
+      id: 'project-management',
+      title: 'Project Management',
+      description: 'End-to-end project management services to drive project success from initiation to closeout.',
+      icon: 'briefcase',
+      features: [
+        'Project planning and execution',
+        'Stakeholder management',
+        'Quality assurance',
+        'Project closeout and lessons learned'
+      ]
     },
     {
-      id: 'pmis',
-      title: 'Project Management Information Systems (PMIS) Implementation',
-      description: 'Deployment of ERP systems and digital tools to streamline project documentation and control processes.',
-      imageUrl: 'https://picsum.photos/id/366/600/400',
-      link: '/services/pmis',
-      icon: 'database'
-    },
-    {
-      id: 'pmo',
-      title: 'Project Management Office (PMO) Establishment',
-      description: 'Design and implementation of frameworks and governance models to enhance project oversight and control.',
-      imageUrl: 'https://picsum.photos/id/370/600/400',
-      link: '/services/pmo',
-      icon: 'briefcase'
+      id: 'training-development',
+      title: 'Training & Development',
+      description: 'Specialized training programs in project management methodologies and software applications.',
+      icon: 'book-open',
+      features: [
+        'Primavera P6 training',
+        'Microsoft Project training',
+        'PMP certification preparation',
+        'Custom training programs'
+      ]
     }
-  ]
-  
-  // Service categories
-  const categories = [
-    'All',
-    'Project Controls',
-    'Cost Management',
-    'Risk Management',
-    'Digital Solutions',
-    'Training'
-  ]
-  
-  // Get featured services (first 6)
-  const featuredServices = services.slice(0, 6)
-  
+  ])
+
   // Get service by ID
   function getServiceById(id: string) {
-    return services.find(service => service.id === id)
+    return services.value.find(service => service.id === id)
   }
-  
-  // Get services by category - this would need a proper category field in each service
-  function getServicesByCategory(category: string) {
-    if (category === 'All') {
-      return services
-    }
-    // This is a placeholder, you should add categories to each service object
-    return services
-  }
-  
+
   return {
     services,
-    categories,
-    featuredServices,
-    getServiceById,
-    getServicesByCategory
+    getServiceById
   }
 }) 

@@ -277,11 +277,11 @@ const activeTab = ref(0)
 const tabs = ['company', 'mission', 'values']
 const tabIcons = [MapIcon, TargetIcon, ShieldIcon]
 
-// Map icon components for values
-const valueIconMap = {
-  'ShieldIcon': ShieldIcon,
-  'AwardIcon': AwardIcon,
-  'UsersIcon': UsersIcon,
-  'LightbulbIcon': LightbulbIcon
-}
+// Fix the valueIconMap usage with proper type annotation
+const valueIconMap: Record<string, any> = {
+  ShieldIcon,
+  AwardIcon,
+  UsersIcon,
+  LightbulbIcon
+};
 </script> 

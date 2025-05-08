@@ -244,9 +244,9 @@ import {
   BriefcaseIcon,
   ChevronRightIcon
 } from 'lucide-vue-next'
-import { useThemeStore } from '@/stores/theme'
 import { useUIStore } from '@/stores/ui'
 import { useI18n } from 'vue-i18n'
+import { useThemeStore } from '@/stores/theme'
 
 const themeStore = useThemeStore()
 const uiStore = useUIStore()
@@ -273,7 +273,7 @@ const navItems: NavItem[] = [
 
 // Function to get the appropriate icon for each navigation item
 function getNavIcon(key: string) {
-  const icons = {
+  const icons: Record<string, any> = {
     home: HomeIcon,
     about: InfoIcon,
     services: PuzzleIcon,
@@ -287,7 +287,7 @@ function getNavIcon(key: string) {
 
 // Sample function to display item counts (for demo purposes)
 function getItemCount(key: string): string {
-  const counts = {
+  const counts: Record<string, string> = {
     blog: '4',
     jobs: '6',
     projects: '12'
@@ -360,7 +360,7 @@ function toggleLocale() {
   }, 300)
 }
 
-function isActive(path) {
+function isActive(path: string) {
   if (path === '/') {
     return route.path === '/'
   }

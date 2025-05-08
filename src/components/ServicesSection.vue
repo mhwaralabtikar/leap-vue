@@ -24,8 +24,8 @@ const moreServices = services.slice(6)
 const activeTab = ref('main')
 
 // Map icon name to component
-const getIconComponent = (iconName) => {
-  const iconMap = {
+const getIconComponent = (iconName: string) => {
+  const iconMap: Record<string, any> = {
     'chart-bar': BarChart2Icon,
     'dollar-sign': DollarSignIcon,
     'file-text': FileTextIcon,
@@ -41,7 +41,7 @@ const getIconComponent = (iconName) => {
 }
 
 // Map service data to format expected by ServiceCard component
-const mapServiceData = (service) => {
+const mapServiceData = (service: any) => {
   const serviceFeatures = service.features || [
     'Comprehensive project oversight',
     'Expert consultation and guidance',

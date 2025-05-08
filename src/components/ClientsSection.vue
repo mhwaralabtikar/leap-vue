@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { ref, onBeforeUnmount } from 'vue'
+import type { UnwrapRefCarouselApi } from "@/components/ui/carousel/interface"
 
 // Carousel API reference
-const carouselApi = ref(null)
+const carouselApi = ref<UnwrapRefCarouselApi | null>(null)
 const currentIndex = ref(0)
 
 // Client logos data
@@ -26,7 +27,7 @@ function handleSelect() {
 }
 
 // Handle API initialization
-function handleInitApi(api) {
+function handleInitApi(api: UnwrapRefCarouselApi) {
   carouselApi.value = api
   
   if (api) {

@@ -122,16 +122,17 @@ import {
 import { useI18n } from 'vue-i18n'
 import { RouterLink } from 'vue-router'
 import { useThemeStore } from '@/stores/theme'
+import type { UnwrapRefCarouselApi } from "@/components/ui/carousel/interface"
 
 const { t, locale } = useI18n()
 const themeStore = useThemeStore()
 const isRtl = computed(() => themeStore.locale === 'ar')
 
 const currentIndex = ref(0)
-const carouselApi = ref(null)
-let autoScrollInterval = null
+const carouselApi = ref<UnwrapRefCarouselApi | null>(null)
+let autoScrollInterval: number | null = null
 let isUserInteracting = false
-let directionChangeTimeout = null
+let directionChangeTimeout: number | null = null
 
 // Define slides with translation keys and higher quality images
 const slides = [
@@ -171,19 +172,21 @@ watch([() => locale.value, isRtl], () => {
       // Temporarily hide carousel to prevent visual glitches
       const carouselElement = document.querySelector('.carousel')
       if (carouselElement) {
-        carouselElement.style.visibility = 'hidden'
+        (carouselElement as HTMLElement).style.visibility = 'hidden'
       }
       
       // Force reflow
       void document.body.offsetHeight
       
       // Go to current slide
-      carouselApi.value.scrollTo(currentIndex.value)
+      if (carouselApi.value) {
+        carouselApi.value.scrollTo(currentIndex.value)
+      }
       
       // Show carousel and restart auto-scrolling after a short delay
       setTimeout(() => {
         if (carouselElement) {
-          carouselElement.style.visibility = 'visible'
+          (carouselElement as HTMLElement).style.visibility = 'visible'
         }
         startAutoScroll()
       }, 100)
@@ -230,7 +233,9 @@ function scrollTo(index: number) {
   // Mark as user interaction to pause auto-scroll temporarily
   isUserInteracting = true
   
-  carouselApi.value?.scrollTo(index)
+  if (carouselApi.value) {
+    carouselApi.value.scrollTo(index)
+  }
   
   // Resume auto-scroll after delay
   setTimeout(() => {
@@ -245,7 +250,7 @@ function handleSelect() {
   }
 }
 
-function handleInitApi(api) {
+function handleInitApi(api: UnwrapRefCarouselApi) {
   carouselApi.value = api
   
   // Set initial index

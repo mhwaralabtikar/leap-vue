@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
-import { ChevronRightIcon, ArrowRightIcon, LucideIcon } from 'lucide-vue-next'
+import { ChevronRightIcon, ArrowRightIcon } from 'lucide-vue-next'
+import type { LucideIcon } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 
@@ -46,7 +47,7 @@ const services = ref<Service[]>([
 ])
 
 // Function to dynamically import icons
-const iconMap = {
+const iconMap: Record<string, any> = {
   BarChart: () => import('lucide-vue-next').then(mod => mod.BarChartIcon),
   DollarSign: () => import('lucide-vue-next').then(mod => mod.DollarSignIcon),
   Calendar: () => import('lucide-vue-next').then(mod => mod.CalendarIcon),

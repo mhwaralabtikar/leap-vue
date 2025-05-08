@@ -1,110 +1,151 @@
 import { defineStore } from 'pinia'
+import { ref, computed } from 'vue'
+
+export interface Project {
+  id: string
+  title: string
+  description: string
+  imageUrl: string
+  category: string
+  location: string
+  client: string
+  year: string
+  services: string[]
+  featured?: boolean
+}
 
 export const useProjectsStore = defineStore('projects', () => {
-  // Projects data
-  const projects = [
+  // Sample projects data
+  const projects = ref<Project[]>([
     {
       id: 'riyadh-metro',
       title: 'Riyadh Metro',
+      description: 'Comprehensive project controls implementation for the Riyadh Metro project, including schedule management, cost control, and change management.',
+      imageUrl: 'https://picsum.photos/id/1031/800/600',
       category: 'Transportation',
       location: 'Saudi Arabia',
-      description: 'A major public transit project in Riyadh, consisting of six metro lines covering the capital city.',
-      imageUrl: 'https://picsum.photos/id/155/800/600'
+      client: 'Royal Commission for Riyadh City',
+      year: '2021',
+      services: ['Project Controls', 'Schedule Management', 'Cost Management'],
+      featured: true
     },
     {
-      id: 'jazan-airport',
-      title: 'Jazan Airport',
-      category: 'Aviation',
-      location: 'Saudi Arabia',
-      description: 'A new regional airport under construction in Jazan aimed at boosting local infrastructure and connectivity.',
-      imageUrl: 'https://picsum.photos/id/28/800/600'
-    },
-    {
-      id: 'amaala-staff-village',
-      title: 'AMAALA Staff Village',
-      category: 'Residential',
-      location: 'Saudi Arabia',
-      description: 'A dedicated residential and support zone for staff working on the luxury AMAALA development on the Red Sea.',
-      imageUrl: 'https://picsum.photos/id/167/800/600'
-    },
-    {
-      id: 'national-guard-housing',
-      title: 'Saudi National Guard Housing Project',
-      category: 'Housing',
-      location: 'Saudi Arabia',
-      description: 'A residential project providing modern housing units for members of the Saudi National Guard.',
-      imageUrl: 'https://picsum.photos/id/173/800/600'
-    },
-    {
-      id: 'riyadh-bus-stops',
-      title: 'Riyadh Bus Stops & Bus Rapid Transit Project',
-      category: 'Transportation',
-      location: 'Saudi Arabia',
-      description: 'Development of smart bus stops and BRT lines in Riyadh to enhance urban mobility.',
-      imageUrl: 'https://picsum.photos/id/183/800/600'
-    },
-    {
-      id: 'dammam-sewage-treatment',
-      title: 'Dammam Sewage Treatment Plant',
-      category: 'Infrastructure',
-      location: 'Saudi Arabia',
-      description: 'A major infrastructure project to improve wastewater management in the Dammam metropolitan area.',
-      imageUrl: 'https://picsum.photos/id/160/800/600'
-    },
-    {
-      id: 'jeddah-tower',
-      title: 'Jeddah Tower Support Services',
+      id: 'king-abdullah-financial-district',
+      title: 'King Abdullah Financial District',
+      description: 'Implementation of integrated project controls system for this major financial hub development in Riyadh.',
+      imageUrl: 'https://picsum.photos/id/1048/800/600',
       category: 'Commercial',
       location: 'Saudi Arabia',
-      description: 'Project management services for supporting facilities of the iconic Jeddah Tower development.',
-      imageUrl: 'https://picsum.photos/id/42/800/600'
+      client: 'Public Investment Fund',
+      year: '2022',
+      services: ['Project Controls', '4D-BIM Modeling', 'Claims Management'],
+      featured: true
     },
     {
-      id: 'neom-residential',
-      title: 'NEOM Residential Community',
-      category: 'Residential',
+      id: 'jeddah-airport-expansion',
+      title: 'Jeddah Airport Expansion',
+      description: 'Schedule and cost management services for the expansion of King Abdulaziz International Airport in Jeddah.',
+      imageUrl: 'https://picsum.photos/id/101/800/600',
+      category: 'Aviation',
       location: 'Saudi Arabia',
-      description: 'A modern residential community being developed as part of the visionary NEOM project.',
-      imageUrl: 'https://picsum.photos/id/164/800/600'
+      client: 'General Authority of Civil Aviation',
+      year: '2020',
+      services: ['Schedule Management', 'Cost Management', 'Claims Management']
     },
     {
-      id: 'red-sea-tourism',
-      title: 'Red Sea Tourism Infrastructure',
+      id: 'red-sea-project',
+      title: 'Red Sea Project',
+      description: 'Implementation of advanced project controls for this luxury tourism development on Saudi Arabia\'s west coast.',
+      imageUrl: 'https://picsum.photos/id/1036/800/600',
       category: 'Tourism',
       location: 'Saudi Arabia',
-      description: 'Development of key tourism infrastructure along the Red Sea coast to support the growing tourism sector.',
-      imageUrl: 'https://picsum.photos/id/110/800/600'
+      client: 'Red Sea Development Company',
+      year: '2022',
+      services: ['Project Controls', '4D-BIM Modeling', 'Schedule Management'],
+      featured: true
+    },
+    {
+      id: 'qiddiya-entertainment-city',
+      title: 'Qiddiya Entertainment City',
+      description: 'Comprehensive project controls services for this major entertainment destination development near Riyadh.',
+      imageUrl: 'https://picsum.photos/id/1057/800/600',
+      category: 'Entertainment',
+      location: 'Saudi Arabia',
+      client: 'Qiddiya Investment Company',
+      year: '2023',
+      services: ['Project Controls', 'Schedule Management', 'Cost Management']
+    },
+    {
+      id: 'diriyah-gate',
+      title: 'Diriyah Gate',
+      description: 'Implementation of integrated schedule and cost management systems for this historical district development in Riyadh.',
+      imageUrl: 'https://picsum.photos/id/1052/800/600',
+      category: 'Heritage',
+      location: 'Saudi Arabia',
+      client: 'Diriyah Gate Development Authority',
+      year: '2023',
+      services: ['Schedule Management', 'Cost Management', 'Claims Management']
+    },
+    {
+      id: 'neom-line',
+      title: 'NEOM - The Line',
+      description: 'Advanced project controls consulting for this revolutionary linear city development in northwest Saudi Arabia.',
+      imageUrl: 'https://picsum.photos/id/1015/800/600',
+      category: 'Infrastructure',
+      location: 'Saudi Arabia',
+      client: 'NEOM Company',
+      year: '2023',
+      services: ['Project Controls', '4D-BIM Modeling', 'Schedule Management'],
+      featured: true
+    },
+    {
+      id: 'jubail-industrial-city-expansion',
+      title: 'Jubail Industrial City Expansion',
+      description: 'Schedule management and claims advisory services for the expansion of Jubail Industrial City.',
+      imageUrl: 'https://picsum.photos/id/1058/800/600',
+      category: 'Industrial',
+      location: 'Saudi Arabia',
+      client: 'Royal Commission for Jubail and Yanbu',
+      year: '2021',
+      services: ['Schedule Management', 'Claims Management']
+    },
+    {
+      id: 'king-salman-park',
+      title: 'King Salman Park',
+      description: 'Project controls implementation for this major urban park development in Riyadh.',
+      imageUrl: 'https://picsum.photos/id/1039/800/600',
+      category: 'Landscape',
+      location: 'Saudi Arabia',
+      client: 'Royal Commission for Riyadh City',
+      year: '2022',
+      services: ['Project Controls', 'Schedule Management', 'Cost Management']
     }
-  ]
-  
-  // Available project categories
-  const categories = [
-    'All',
-    'Transportation',
-    'Aviation',
-    'Residential',
-    'Housing',
-    'Infrastructure',
-    'Commercial',
-    'Tourism'
-  ]
-  
-  // Get featured projects (first 5)
-  const featuredProjects = projects.slice(0, 5)
-  
+  ])
+
+  // Extract unique categories from projects
+  const categories = computed(() => {
+    const uniqueCategories = new Set(projects.value.map(project => project.category))
+    return Array.from(uniqueCategories)
+  })
+
+  // Get featured projects
+  const featuredProjects = computed(() => {
+    return projects.value.filter(project => project.featured)
+  })
+
   // Get project by ID
   function getProjectById(id: string) {
-    return projects.find(project => project.id === id)
+    return projects.value.find(project => project.id === id)
   }
-  
+
   // Get projects by category
   function getProjectsByCategory(category: string) {
-    if (category === 'All') {
-      return projects
+    if (!category || category === 'All') {
+      return projects.value
     }
-    return projects.filter(project => project.category === category)
+    return projects.value.filter(project => project.category === category)
   }
-  
+
   return {
     projects,
     categories,

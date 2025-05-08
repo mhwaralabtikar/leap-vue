@@ -35,7 +35,6 @@ import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { ArrowUpIcon } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 import { useThemeStore } from '@/stores/theme'
-
 const { t } = useI18n()
 const themeStore = useThemeStore()
 const showButton = ref(false)

@@ -531,7 +531,7 @@ const form = reactive({
 })
 
 // Validate on blur
-async function validateOnBlur(field: string) {
+async function validateOnBlur(field: 'message' | 'name' | 'email' | 'subject' | 'phone' | 'inquiryType' | 'privacyAgreed') {
   await validateField(field)
 }
 
@@ -566,7 +566,12 @@ const onSubmit = handleSubmit(async (values) => {
     
     // Save to contact store
     const contactStore = useContactStore()
-    contactStore.saveContactSubmission(values)
+    // Ensure inquiryType is not undefined
+    const submissionData = {
+      ...values,
+      inquiryType: values.inquiryType || 'general'
+    }
+    contactStore.saveContactSubmission(submissionData)
     
     // Reset form after successful submission
     form.name = ''

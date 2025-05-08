@@ -17,9 +17,8 @@ app.use(router)
 app.use(i18n)
 app.use(visibilityPlugin)
 
+// Initialize theme store
+useThemeStore()
+
 // Mount app
 app.mount('#app')
-
-// Initialize theme after app is mounted
-const themeStore = useThemeStore()
-themeStore.initTheme()

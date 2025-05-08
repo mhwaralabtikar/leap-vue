@@ -6,9 +6,10 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { ChevronRightIcon } from "lucide-vue-next"
 import { RouterLink } from "vue-router"
 import { useProjectsStore } from '@/stores/projects'
+import type { UnwrapRefCarouselApi } from "@/components/ui/carousel/interface"
 
 // Carousel API reference
-const carouselApi = ref(null)
+const carouselApi = ref<UnwrapRefCarouselApi | null>(null)
 const currentIndex = ref(0)
 
 // Get projects data from store
@@ -23,7 +24,7 @@ function handleSelect() {
 }
 
 // Handle API initialization
-function handleInitApi(api) {
+function handleInitApi(api: UnwrapRefCarouselApi) {
   carouselApi.value = api
   
   if (api) {

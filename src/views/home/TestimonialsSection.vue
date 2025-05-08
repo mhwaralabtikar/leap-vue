@@ -5,9 +5,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { QuoteIcon } from "lucide-vue-next"
 import { useI18n } from 'vue-i18n'
 import { ref, onBeforeUnmount } from 'vue'
+import type { UnwrapRefCarouselApi } from "@/components/ui/carousel/interface"
 
 const { t } = useI18n()
-const carouselApi = ref(null)
+const carouselApi = ref<UnwrapRefCarouselApi | null>(null)
 const currentIndex = ref(0)
 
 // Testimonials data
@@ -58,7 +59,7 @@ function handleSelect() {
 }
 
 // Handle Carousel API initialization
-function handleInitApi(api) {
+function handleInitApi(api: UnwrapRefCarouselApi) {
   carouselApi.value = api
   
   if (api) {

@@ -49,7 +49,7 @@
           <!-- Blog Posts using the BlogCard component -->
           <BlogCard 
             v-for="post in blogPosts" 
-            :key="post.id" 
+            :key="`post-${post.id}`" 
             :post="post"
           />
         </div>

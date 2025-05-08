@@ -112,10 +112,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div v-for="(service, index) in relatedServices" :key="index">
             <ServiceCard 
-              :title="service.title"
-              :description="service.description"
-              :imageUrl="service.imageUrl"
-              :link="service.link"
+              :service="service"
             />
           </div>
         </div>

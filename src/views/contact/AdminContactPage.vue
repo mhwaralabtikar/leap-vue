@@ -509,7 +509,7 @@ const displayedSubmissions = computed(() => {
 
 const paginationRange = computed(() => {
   // Create an array of page numbers for pagination
-  const range = []
+  const range: number[] = []
   const maxVisiblePages = 5
   
   if (totalPages.value <= maxVisiblePages) {

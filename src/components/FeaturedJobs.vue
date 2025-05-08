@@ -78,6 +78,7 @@ import {
   CarouselNext, 
   CarouselPrevious
 } from '@/components/ui/carousel'
+import type { UnwrapRefCarouselApi } from "@/components/ui/carousel/interface"
 
 const { t } = useI18n()
 const themeStore = useThemeStore()
@@ -86,22 +87,26 @@ const { getFeaturedJobs } = useJobs()
 const featuredJobs = getFeaturedJobs
 
 // Carousel navigation state
-const carouselApi = ref(null)
+const carouselApi = ref<UnwrapRefCarouselApi | null>(null)
 const canScrollPrev = ref(false)
 const canScrollNext = ref(false)
 
 // Update carousel navigation state
-function handleCarouselInit(api) {
+function handleCarouselInit(api: UnwrapRefCarouselApi) {
   carouselApi.value = api
 
-  // Update navigation state when selection changes
-  api.on('select', () => {
+  if (api) {
+    // Update navigation state when selection changes
+    api.on('select', () => {
+      if (api) {
+        canScrollPrev.value = api.canScrollPrev()
+        canScrollNext.value = api.canScrollNext()
+      }
+    })
+
+    // Initialize navigation state
     canScrollPrev.value = api.canScrollPrev()
     canScrollNext.value = api.canScrollNext()
-  })
-
-  // Initialize navigation state
-  canScrollPrev.value = api.canScrollPrev()
-  canScrollNext.value = api.canScrollNext()
+  }
 }
 </script> 

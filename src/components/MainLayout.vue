@@ -22,7 +22,7 @@
             <template v-for="(crumb, index) in breadcrumbs" :key="`crumb-${crumb.path || index}`">
               <template v-if="index < breadcrumbs.length - 1">
                 <RouterLink 
-                  :to="crumb.path" 
+                  :to="crumb.path || '/'" 
                   class="hover:text-primary transition-colors"
                 >
                   {{ crumb.label }}
