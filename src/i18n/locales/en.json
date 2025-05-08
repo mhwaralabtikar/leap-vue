@@ -1,0 +1,477 @@
+{
+  "header": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "blog": "Blog",
+    "jobs": "Jobs",
+    "contact": "Contact",
+    "switchLanguage": "Switch to Arabic"
+  },
+  "hello": "Hello!",
+  "hero": {
+    "title": "Innovative Project Management Solutions",
+    "subtitle": "Streamline your projects with our comprehensive management platform and expert services",
+    "cta": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "home": {
+    "title": "Welcome to Leap PM",
+    "subtitle": "Your all-in-one project management solution",
+    "featuredTitle": "What We Offer",
+    "featureTitle": "Feature {number}",
+    "featureDescription": "Our platform provides intuitive tools designed to help teams collaborate effectively and deliver projects on time."
+  },
+  "common": {
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide",
+    "goToSlide": "Go to slide {number}",
+    "loading": "Loading...",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "home": "Home",
+    "backToTop": "Back to top",
+    "viewMore": "View more",
+    "scrollForMore": "Scroll for more"
+  },
+  "example": {
+    "title": "Example Page",
+    "subtitle": "This is an example page using the MainLayout component",
+    "category": "Category",
+    "subcategory": "Subcategory",
+    "page": "Example Page",
+    "cardTitle": "Card {number}",
+    "cardDescription": "This is an example card description. It demonstrates how content can be structured within the layout.",
+    "lastUpdated": "Updated 3 days ago",
+    "readMore": "Read more",
+    "sectionTitle": "Features and Benefits",
+    "sectionDescription": "Here are some key features and benefits of using our service. This section demonstrates how to structure content within the layout.",
+    "featureTitle": "Feature {number}",
+    "featureDescription": "This is a description of the feature and how it benefits the user."
+  },
+  "clients": {
+    "title": "Trusted by Industry Leaders",
+    "subtitle": "We partner with leading organizations across industries to deliver exceptional project management solutions"
+  },
+  "features": {
+    "title": "Powerful Features",
+    "subtitle": "Comprehensive tools to manage your projects efficiently",
+    "feature1": {
+      "title": "Intuitive Dashboard",
+      "description": "Get a clear overview of your projects with our easy-to-use dashboard"
+    },
+    "feature2": {
+      "title": "Team Collaboration",
+      "description": "Connect and collaborate with your team members seamlessly"
+    },
+    "feature3": {
+      "title": "Advanced Analytics",
+      "description": "Track progress and make data-driven decisions with detailed reports"
+    }
+  },
+  "about": {
+    "aboutUs": "About Us",
+    "title": "Your Trusted Partner in Project Management",
+    "description": "With over 15 years of experience, we provide comprehensive project management solutions that help businesses deliver successful projects on time and within budget.",
+    "learnMore": "Learn More About Us",
+    "ourStory": "Our Story",
+    "ourStoryTitle": "Building a Legacy of Project Excellence",
+    "ourStoryContent1": "Founded in 2008, LEAP PM has grown from a small consulting firm to one of the region's leading project management companies, with a focus on delivering exceptional results across diverse industries.",
+    "ourStoryContent2": "Our journey has been defined by a commitment to innovation, excellence, and client satisfaction. We've successfully delivered hundreds of projects, building long-lasting relationships with clients who trust us to bring their visions to life.",
+    "established": "Established",
+    "foundedYear": "2008",
+    "discovery": "Discover",
+    "whatWeDo": "What We Do",
+    "whatWeDoSubtitle": "Our comprehensive approach to project management ensures successful delivery across all phases of your project lifecycle.",
+    "expertise": "Industry Expertise",
+    "expertiseContent": "Our team brings specialized knowledge across construction, infrastructure, transportation, and technology sectors.",
+    "global": "Regional Reach",
+    "globalContent": "We've successfully delivered projects across the Middle East, with a strong focus on the GCC countries.",
+    "missionTitle": "Our Mission",
+    "missionContent": "Our mission is to empower organizations to achieve project excellence through innovative solutions, expert guidance, and unwavering commitment to quality and client satisfaction.",
+    "visionTitle": "Our Vision",
+    "visionContent": "To be the premier project management partner in the region, setting the standard for excellence and innovation in delivering transformative projects that shape our communities.",
+    "achievements": "Achievements",
+    "meetTheTeam": "Leadership",
+    "ourTeam": "Meet Our Team",
+    "ourTeamSubtitle": "Our success is built on the expertise and dedication of our talented professionals.",
+    "partnerships": "Collaborations",
+    "ourPartners": "Our Trusted Partners",
+    "ourPartnersSubtitle": "We're proud to collaborate with industry leaders who share our commitment to excellence.",
+    "tabs": {
+      "company": "Company",
+      "mission": "Mission",
+      "values": "Values"
+    },
+    "companyContent": "LEAP PM is a leading project management firm specializing in delivering comprehensive solutions across various industries. Our expert team brings decades of combined experience to every project.",
+    "missionContent": "Our mission is to empower organizations to achieve project excellence through innovative solutions, expert guidance, and unwavering commitment to quality and client satisfaction.",
+    "values": {
+      "integrity": "Integrity",
+      "integrityContent": "Integrity in all our business dealings",
+      "excellence": "Excellence",
+      "excellenceContent": "Commitment to excellence in every project",
+      "innovation": "Innovation",
+      "innovationContent": "Continuous innovation in our approach",
+      "collaboration": "Collaboration",
+      "collaborationContent": "Strong collaboration with clients and partners"
+    }
+  },
+  "services": {
+    "ourServices": "Our Services",
+    "title": "Our Services",
+    "subtitle": "Comprehensive project management solutions customized to meet your specific business needs and challenges",
+    "whatWeDo": "What We Do",
+    "description": "We offer a wide range of specialized services designed to optimize your project delivery and ensure success at every stage.",
+    "viewAll": "View All Services",
+    "learnMore": "Learn More",
+    "projectControls": {
+      "title": "Project Controls",
+      "description": "Comprehensive project oversight including scope, schedule, and cost management."
+    },
+    "costManagement": {
+      "title": "Cost Management",
+      "description": "Detailed budgeting, forecasting, and cost control throughout the project lifecycle."
+    },
+    "scheduling": {
+      "title": "Schedule Management",
+      "description": "Development and tracking of project schedules to ensure timely delivery."
+    },
+    "documentControl": {
+      "title": "Document Control",
+      "description": "Efficient management of project documentation and information flow."
+    }
+  },
+  "stats": {
+    "title": "Our Track Record",
+    "subtitle": "We take pride in our achievements and the trust our clients place in us",
+    "projects": "Completed Projects",
+    "clients": "Happy Clients",
+    "yearsExperience": "Years Experience",
+    "countries": "Countries Served"
+  },
+  "testimonials": {
+    "testimonials": "Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Discover why leading organizations choose our project management solutions",
+    "testimonial1": {
+      "name": "John Davis",
+      "role": "Project Director",
+      "company": "Global Construction Inc",
+      "content": "Working with LEAP PM has transformed our project delivery approach. Their expertise and dedication to excellence have helped us complete complex projects ahead of schedule and under budget."
+    },
+    "testimonial2": {
+      "name": "Sarah Cooper",
+      "role": "Operations Manager",
+      "company": "TechBuild Solutions",
+      "content": "The team at LEAP PM provided invaluable support throughout our expansion project. Their attention to detail and proactive approach to problem-solving made all the difference."
+    },
+    "testimonial3": {
+      "name": "Ahmed Rahman",
+      "role": "CEO",
+      "company": "Innovate Engineers",
+      "content": "We've partnered with LEAP PM on multiple projects over the past five years. Their consistent quality and reliability have made them an essential part of our success."
+    },
+    "testimonial4": {
+      "name": "Maria Kovacs",
+      "role": "Development Director",
+      "company": "Urban Living Properties",
+      "content": "LEAP PM's comprehensive approach to project management has significantly improved our development process. Their team's expertise is unmatched in the industry."
+    }
+  },
+  "blog": {
+    "latestNews": "Latest News",
+    "title": "Our Blog",
+    "subtitle": "Insights, news, and updates from the LEAP PM team",
+    "insights": "Insights & Updates",
+    "viewAll": "View All Articles",
+    "readMore": "Read More",
+    "post1": {
+      "title": "5 Key Trends in Project Management for 2025",
+      "excerpt": "Discover the emerging trends that are shaping the future of project management and how they can benefit your organization."
+    },
+    "post2": {
+      "title": "How Digital Transformation is Changing Construction Management",
+      "excerpt": "Explore how digital technologies are revolutionizing traditional construction management processes and improving outcomes."
+    },
+    "post3": {
+      "title": "Best Practices for Effective Resource Allocation",
+      "excerpt": "Learn proven strategies to optimize resource allocation across your projects and maximize efficiency."
+    },
+    "categories": {
+      "industry": "Industry",
+      "innovation": "Innovation",
+      "technology": "Technology"
+    },
+    "shareArticle": "Share this article",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnX": "Share on X",
+    "shareOnLinkedIn": "Share on LinkedIn",
+    "share": "Share",
+    "linkCopied": "Link copied to clipboard!",
+    "subscribeNewsletter": "Subscribe to Newsletter"
+  },
+  "cta": {
+    "title": "Ready to Transform Your Project Management?",
+    "description": "Partner with us to enhance your project delivery capabilities and achieve consistent success across all your initiatives.",
+    "contactUs": "Contact Us Today",
+    "learnMore": "Learn More"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "We'd love to hear from you! Our team is always here to help, provide information, or discuss potential opportunities for collaboration.",
+    "sendMessage": "Get in Touch",
+    "subtitle": "Fill in the form below to send us a message and we'll get back to you as soon as possible.",
+    "quickResponse": "Quick Response",
+    "secureForm": "Secure Form",
+    "sendAnother": "Send another message",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about your inquiry or provide details about how we can help you...",
+    "submit": "Send Message",
+    "submitting": "Sending...",
+    "valid": "Looks good!",
+    "inquiryType": "What can we help you with?",
+    "inquiryTypes": {
+      "general": "General Inquiry",
+      "services": "Our Services",
+      "partnership": "Partnership",
+      "support": "Support"
+    },
+    "privacyPolicy": "I agree to the <a href='/privacy' class='text-primary hover:underline'>privacy policy</a> and consent to having my data processed.",
+    "successTitle": "Message Sent Successfully!",
+    "success": "Thank you for contacting us. We've received your message and will respond shortly.",
+    "errors": {
+      "nameRequired": "Please enter your name",
+      "validEmail": "Please enter a valid email address",
+      "subjectRequired": "Please enter a subject",
+      "messageRequired": "Please enter a message (minimum 10 characters)",
+      "messageTooLong": "Message is too long (maximum 500 characters)",
+      "privacyRequired": "Please agree to the privacy policy"
+    },
+    "faqTitle": "Frequently Asked Questions",
+    "faqSubtitle": "Find answers to common questions about our services and support.",
+    "faqs": {
+      "response": {
+        "question": "How quickly will I receive a response?",
+        "answer": "We aim to respond to all inquiries within 24-48 business hours. For urgent matters, we recommend calling our support line for immediate assistance."
+      },
+      "services": {
+        "question": "What services do you offer?",
+        "answer": "We provide a comprehensive range of project management services including scheduling, cost management, document control, and more. Visit our <a href='/services' class='text-primary hover:underline'>Services</a> page for detailed information."
+      },
+      "support": {
+        "question": "How can I get technical support?",
+        "answer": "Technical support is available through multiple channels: this contact form (select 'Support' as inquiry type), direct email to support@leap-pm.com, or by phone during business hours."
+      },
+      "appointments": {
+        "question": "Can I schedule a consultation?",
+        "answer": "Yes! We offer both in-person and virtual consultations. Please indicate your preference in your message, and we'll arrange a time that works for you."
+      },
+      "international": {
+        "question": "Do you provide services internationally?",
+        "answer": "We primarily serve clients in the Middle East region, with a focus on Saudi Arabia, UAE, Qatar, and Kuwait. For projects in other regions, please contact us to discuss possibilities."
+      }
+    },
+    "admin": {
+      "title": "Contact Management",
+      "subtitle": "View and manage all contact form submissions.",
+      "inquiries": "Inquiries",
+      "all": "All",
+      "status": "Status",
+      "statusNew": "New",
+      "statusRead": "Read",
+      "statusResponded": "Responded",
+      "resetFilters": "Reset Filters",
+      "refresh": "Refresh",
+      "loading": "Loading submissions...",
+      "search": "Search submissions",
+      "errorTitle": "Error Loading Data",
+      "tryAgain": "Try Again",
+      "noSubmissions": "No Submissions Found",
+      "noSubmissionsDesc": "There are no contact form submissions that match your filters, or no submissions have been made yet.",
+      "goToContact": "Go to Contact Form",
+      "allInquiries": "All Inquiries",
+      "new": "New",
+      "read": "Read",
+      "responded": "Responded",
+      "markAsRead": "Mark as Read",
+      "markAsResponded": "Mark as Responded",
+      "reply": "Reply via Email",
+      "delete": "Delete",
+      "confirmDelete": "Delete Submission?",
+      "deleteWarning": "This action cannot be undone. This will permanently delete the submission."
+    },
+    "adminLink": "Admin Access"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Explore our portfolio of successful projects across various industries and sectors",
+    "ourProjects": "Project Portfolio",
+    "viewServices": "View Our Services",
+    "search": "Search Projects",
+    "searchPlaceholder": "Search by project name, location, or category...",
+    "category": "Category",
+    "location": "Location",
+    "allCategories": "All Categories",
+    "allLocations": "All Locations",
+    "resetFilters": "Reset Filters",
+    "noProjectsFound": "No Projects Found",
+    "seeProject": "View Project",
+    "details": "View Details",
+    "noMatchingProjects": "No matching projects found",
+    "tryDifferentSearch": "Try a different search term or reset the filters to see more results",
+    "transportation": "Transportation",
+    "aviation": "Aviation",
+    "residential": "Residential",
+    "commercial": "Commercial",
+    "infrastructure": "Infrastructure",
+    "tourism": "Tourism",
+    "housing": "Housing",
+    "saudiArabia": "Saudi Arabia"
+  },
+  "jobs": {
+    "title": "Career Opportunities",
+    "subtitle": "Join our team of dedicated professionals and contribute to impactful projects across the region",
+    "careers": "Careers",
+    "contactRecruitment": "Contact Recruitment",
+    "search": "Search Jobs",
+    "searchPlaceholder": "Search by title, department, or keyword...",
+    "jobType": "Job Type",
+    "allTypes": "All Types",
+    "fullTime": "Full Time",
+    "partTime": "Part Time",
+    "contract": "Contract",
+    "location": "Location",
+    "allLocations": "All Locations",
+    "riyadh": "Riyadh, Saudi Arabia",
+    "jeddah": "Jeddah, Saudi Arabia",
+    "department": "Department",
+    "allDepartments": "All Departments",
+    "projectControls": "Project Controls",
+    "costManagement": "Cost Management",
+    "technicalServices": "Technical Services",
+    "claimsManagement": "Claims Management",
+    "availablePositions": "Available Positions",
+    "noJobsFound": "No Jobs Found",
+    "noMatchingJobs": "No matching jobs found",
+    "tryDifferentSearch": "Try a different search term or filter selection",
+    "resetFilters": "Reset Filters",
+    "applyNow": "Apply Now",
+    "whyJoinUs": "Why Join LEAP PM?",
+    "careerGrowth": "Build your career with a company that values innovation, excellence, and professional growth.",
+    "professionalGrowth": {
+      "title": "Professional Growth",
+      "description": "Opportunities for continuous learning and professional development."
+    },
+    "innovativeProjects": {
+      "title": "Innovative Projects",
+      "description": "Work on cutting-edge projects that shape the built environment."
+    },
+    "benefits": {
+      "title": "Competitive Benefits",
+      "description": "Attractive compensation packages and benefits for all employees."
+    },
+    "openPositions": "Open Positions",
+    "featuredJobs": "Featured Job Opportunities",
+    "joinOurTeam": "Join our team of talented professionals and help shape the future of project management",
+    "viewAllJobs": "View All Jobs",
+    "postedOn": "Posted on",
+    "competitiveSalary": "Competitive Salary",
+    "readMore": "Read More",
+    "readLess": "Read Less",
+    "viewJob": "View Job",
+    "share": "Share",
+    "shareThisJob": "Share this Job",
+    "shareOnFacebook": "Share on Facebook",
+    "shareOnX": "Share on X",
+    "shareOnLinkedIn": "Share on LinkedIn",
+    "copyLink": "Copy Link",
+    "linkCopied": "Link copied to clipboard!",
+    "jobs": "Jobs",
+    "types": {
+      "fulltime": "Full Time",
+      "parttime": "Part Time",
+      "contract": "Contract",
+      "internship": "Internship"
+    },
+    "engineering": "Engineering",
+    "administration": "Administration",
+    "internship": "Internship",
+    "about": "About the Role",
+    "responsibilities": "Responsibilities",
+    "requirements": "Requirements",
+    "benefits": "Benefits",
+    "aboutCompany": "About LEAP PM",
+    "companyDescription": "LEAP PM is a leading project management consultancy specializing in providing comprehensive project management solutions across the Middle East. Our team consists of industry experts who are passionate about delivering excellence and innovation in project delivery.",
+    "diversityStatement": "We are committed to creating a diverse and inclusive workplace where all employees can thrive. We welcome applications from candidates of all backgrounds and experiences.",
+    "summary": "Job Summary",
+    "salaryRange": "Salary Range",
+    "education": "Education",
+    "experience": "Experience",
+    "similarJobs": "Similar Jobs",
+    "viewDetails": "View Details",
+    "form": {
+      "apply": "Apply for this Position",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "resume": "Resume/CV",
+      "dragFile": "Drag your file here or click to browse",
+      "supportedFormats": "Supported formats: PDF, DOC, DOCX (Max 5MB)",
+      "coverLetter": "Cover Letter (Optional)",
+      "coverLetterPlaceholder": "Tell us why you're a good fit for this position",
+      "consent": "I consent to LEAP PM processing my personal data for recruitment purposes. I understand that my information will be handled in accordance with the company's privacy policy.",
+      "submit": "Submit Application"
+    }
+  },
+  "footer": {
+    "about": "About LEAP PM",
+    "aboutText": "We are a leading project management firm specializing in delivering comprehensive solutions across various industries.",
+    "services": "Services",
+    "resources": "Resources",
+    "contact": "Contact",
+    "copyright": "© 2025 LEAP PM. All rights reserved.",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "companyDescription": "LEAP PM is a multipurpose project management firm providing innovative solutions for your business.",
+    "followUs": "Follow Us",
+    "followOnX": "Follow us on X",
+    "followOnFacebook": "Follow us on Facebook",
+    "followOnLinkedIn": "Follow us on LinkedIn",
+    "followOnInstagram": "Follow us on Instagram",
+    "contactInfo": "Contact Info",
+    "address": "Moonshine St. 14/05\nLight City, Riyadh, Saudi Arabia",
+    "learnMore": "Learn More",
+    "ourStory": "Our Story",
+    "ourServices": "Our Services",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "newsletter": "Our Newsletter",
+    "newsletterDescription": "Subscribe to our newsletter to get our news & deals delivered to you.",
+    "emailPlaceholder": "Email Address",
+    "subscribe": "Subscribe",
+    "allRightsReserved": "All rights reserved.",
+    "aboutUs": "About Us",
+    "jobs": "Jobs",
+    "services": "Services"
+  }
+} 
