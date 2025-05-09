@@ -3,6 +3,7 @@ type = "javascript"
 account_id = "dfd0934ada854fb30ecb91fe050f5294"
 workers_dev = true
 compatibility_date = "2025-05-09"
+main = "./worker.ts"
 
 [observability.logs]
 enabled = true
