@@ -1,5 +1,5 @@
 {
-    "name": "leap-app",
+    "name": "leap-pm",
     "compatibility_date": "2025-04-03",
     "main": "./worker.ts" 
   }
