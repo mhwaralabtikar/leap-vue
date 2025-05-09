@@ -1,0 +1,1 @@
+import{c as a,a as e}from"./entry-server-DIdk1VNC.js";const{app:t,router:_,pinia:p}=a(e());window.__INITIAL_STATE__&&(p.state.value=JSON.parse(window.__INITIAL_STATE__));_.isReady().then(()=>{t.mount("#app")});

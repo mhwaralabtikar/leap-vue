@@ -1,0 +1,1 @@
+.animate-pulse-slow[data-v-97086759]{animation:pulse-97086759 3s ease-in-out infinite}.animate-bounce-gentle[data-v-97086759]{animation:bounce-gentle-97086759 2s ease-in-out infinite}@keyframes pulse-97086759{0%,to{opacity:.3}50%{opacity:.15}}@keyframes bounce-gentle-97086759{0%,to{transform:translateY(0)}50%{transform:translateY(-8px)}}

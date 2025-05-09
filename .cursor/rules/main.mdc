@@ -1,0 +1,28 @@
+---
+description: 
+globs: src/**
+alwaysApply: false
+---
+avoid using `<style>` and `<style scoped>` in vue files 
+all css styles must in css file 
+if need image use random from https://picsum.photos
+
+
+update Lang AR/EN
+
+fix RTL
+
+fix Dark theme
+
+#fetch content from https://test.leap-pm.com/
+
+
+store data into stores folder using pinia
+
+
+
+
+
+
+
+

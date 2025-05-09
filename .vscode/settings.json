@@ -1,0 +1,13 @@
+{
+    "github.copilot.chat.codeGeneration.instructions": [
+        {
+            "file": ".copilot-codeGeneration-instructions.md"
+        },
+        {
+            "file": ".vscode/tailwindcss.md"
+        },
+        {
+            "file": ".vscode/shadcn-vue.md"
+        }
+    ]
+}
