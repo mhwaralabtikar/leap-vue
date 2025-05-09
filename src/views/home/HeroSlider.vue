@@ -127,7 +127,7 @@
                             :end-val="stat.value" 
                             :enable-scrollSpy="true"
                             scrollSpyOnce
-                            duration="3"
+                            :duration="3"
                           />
                           <span>{{ stat.suffix }}</span>
                         </div>

@@ -83,8 +83,8 @@ const siteUrl = appStore.config?.siteUrl || 'https://leap-pm.com'
 
 // Handle search query
 function performSearch() {
-  if (searchQuery.value.trim()) {
-    router.push({
+  if (searchQuery.value.trim() && router && typeof router?.push === 'function') {
+    router?.push({
       path: '/services',
       query: { q: searchQuery.value }
     })

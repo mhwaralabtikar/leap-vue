@@ -14,6 +14,19 @@ const routes = [
     }
   },
   {
+    path: '/search',
+    name: 'search',
+    component: () => import('../views/search/SearchPage.vue'),
+    meta: {
+      title: 'Search Results',
+      subtitle: 'Find what you are looking for',
+      breadcrumbs: [
+        { name: 'Home', path: '/' },
+        { name: 'Search', path: '/search' }
+      ]
+    }
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('../views/about/AboutPage.vue'),
@@ -130,20 +143,6 @@ const routes = [
     }
   },
   {
-    path: '/services/not-found',
-    name: 'service-not-found',
-    component: () => import('../views/errors/detail/ServiceNotFoundPage.vue'),
-    meta: {
-      title: 'Service Not Found',
-      subtitle: 'The service you are looking for does not exist',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Services', path: '/services' },
-        { name: 'Not Found', path: '' }
-      ]
-    }
-  },
-  {
     path: '/projects/:id',
     name: 'project-detail',
     component: () => import('../views/projects/ProjectDetailPage.vue'),
@@ -153,20 +152,17 @@ const routes = [
         { name: 'Projects', path: '/projects' },
         { name: 'Project Details', dynamic: true }
       ]
-    }
-  },
-  {
-    path: '/projects/not-found',
-    name: 'project-not-found',
-    component: () => import('../views/errors/detail/ProjectNotFoundPage.vue'),
-    meta: {
-      title: 'Project Not Found',
-      subtitle: 'The project you are looking for does not exist',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Projects', path: '/projects' },
-        { name: 'Not Found', path: '' }
-      ]
+    },
+    // Add dynamic title and subtitle based on the project
+    beforeEnter: async (to, from, next) => {
+      const { id } = to.params;
+      if (id && typeof id === 'string') {
+        // We'll set meta data dynamically when the component loads
+        // Handled in the component's onMounted
+        next();
+      } else {
+        next('/projects');
+      }
     }
   },
   {
@@ -178,20 +174,6 @@ const routes = [
         { name: 'Home', path: '/' },
         { name: 'Blog', path: '/blog' },
         { name: 'Article', dynamic: true }
-      ]
-    }
-  },
-  {
-    path: '/blog/not-found',
-    name: 'blog-not-found',
-    component: () => import('../views/errors/detail/BlogNotFoundPage.vue'),
-    meta: {
-      title: 'Blog Post Not Found',
-      subtitle: 'The blog post you are looking for does not exist',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Blog', path: '/blog' },
-        { name: 'Not Found', path: '' }
       ]
     }
   },
@@ -222,20 +204,6 @@ const routes = [
       ]
     }
   },
-  {
-    path: '/jobs/not-found',
-    name: 'job-not-found',
-    component: () => import('../views/errors/detail/JobNotFoundPage.vue'),
-    meta: {
-      title: 'Job Not Found',
-      subtitle: 'The job posting you are looking for does not exist',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Careers', path: '/jobs' },
-        { name: 'Not Found', path: '' }
-      ]
-    }
-  },
   // Legal Pages
   {
     path: '/terms',
@@ -263,18 +231,14 @@ const routes = [
       ]
     }
   },
-  // Error Pages
+  // Error routes
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
     component: () => import('../views/errors/NotFoundPage.vue'),
     meta: {
       title: 'Page Not Found',
-      subtitle: 'The page you are looking for does not exist',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Not Found', path: '' }
-      ]
+      subtitle: 'The page you are looking for does not exist'
     }
   },
   {
@@ -283,7 +247,7 @@ const routes = [
     component: () => import('../views/errors/ErrorPage.vue'),
     meta: {
       title: 'Error',
-      subtitle: 'Something went wrong',
+      subtitle: 'An error occurred',
       breadcrumbs: [
         { name: 'Home', path: '/' },
         { name: 'Error', path: '/error' }
@@ -296,11 +260,7 @@ const routes = [
     component: () => import('../views/errors/MaintenancePage.vue'),
     meta: {
       title: 'Maintenance',
-      subtitle: 'We are currently performing maintenance',
-      breadcrumbs: [
-        { name: 'Home', path: '/' },
-        { name: 'Maintenance', path: '/maintenance' }
-      ]
+      subtitle: 'We are currently undergoing scheduled maintenance'
     }
   }
 ] as RouteRecordRaw[]

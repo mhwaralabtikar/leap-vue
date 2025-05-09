@@ -160,7 +160,7 @@ const applicationSubmitted = ref(false)
 const jobId = computed(() => route.params.id as string)
 
 // Get job details
-const job = computed(() => jobsStore.getJobById(jobId.value))
+const job = computed(() => jobsStore.getJobById(jobId))
 
 // Format date helper function
 function formatDate(dateString: string) {

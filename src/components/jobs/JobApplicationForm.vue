@@ -320,7 +320,7 @@ const validationSchema = toTypedSchema(
     phone: z.string().min(5, t('jobs.form.errors.validPhone')),
     resume: z.instanceof(File, { message: t('jobs.form.errors.resumeRequired') }),
     coverLetter: z.string().optional(),
-    eligibilityConfirmed: compact ? z.boolean().optional() : z.boolean().refine(val => val === true, {
+    eligibilityConfirmed: z.boolean().refine(val => val === true, {
       message: t('jobs.form.errors.eligibilityRequired') || 'You must confirm your eligibility to work'
     }),
     privacyAgreed: z.boolean().refine(val => val === true, {
@@ -373,7 +373,8 @@ function handleFileUpload(event: Event) {
     form.resume = file
     // Validate in the background
     nextTick(async () => {
-      await validateField('resume', file)
+      setFieldValue('resume', file)
+      await validateField('resume')
     })
   }
 }

@@ -4,7 +4,7 @@ import type { HTMLAttributes } from 'vue'
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
 import { FieldContextKey } from 'vee-validate'
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys'
 import { useFieldError } from 'vee-validate'
 
@@ -15,8 +15,8 @@ const fieldContext = inject(FieldContextKey, null)
 const fieldItemContext = inject(FORM_ITEM_INJECTION_KEY, null)
 
 // Only try to access error and formItemId if contexts are available
-let error = null
-let formItemId = props.htmlFor || null
+let error = ref('')
+let formItemId = props.htmlFor || undefined
 
 if (fieldContext && fieldItemContext) {
   const { name } = fieldContext

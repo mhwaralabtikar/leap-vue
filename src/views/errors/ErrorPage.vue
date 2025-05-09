@@ -121,7 +121,9 @@ if (route.query.message) {
 }
 
 function goBack() {
-  router.back()
+  if (router && typeof router.back === 'function') {
+    router.back()
+  }
 }
 </script>
 

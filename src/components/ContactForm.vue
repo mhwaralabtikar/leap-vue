@@ -531,7 +531,8 @@ function selectInquiryType(type: string) {
   
   // Validate in the background
   nextTick(async () => {
-    await validateField('inquiryType', type)
+    setFieldValue('inquiryType', type)
+    await validateField('inquiryType')
   })
 }
 

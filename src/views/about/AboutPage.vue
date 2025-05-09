@@ -590,7 +590,6 @@ import {
   TrophyIcon,
   ChevronRightIcon,
   ChevronLeftIcon,
-  Separator,
   ArrowDownIcon,
   TwitterIcon,
   FacebookIcon

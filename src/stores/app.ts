@@ -4,7 +4,7 @@ import { ref, computed } from 'vue'
 // App configuration
 const APP_CONFIG = {
   siteUrl: 'https://leap-pm.com',
-  apiUrl: 'https://api.leap-pm.com'
+  apiUrl: 'https://test.leap-pm.com'
 }
 
 export const useAppStore = defineStore('app', () => {

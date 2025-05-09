@@ -160,4 +160,5 @@ import { useThemeStore } from '../stores/theme'
 const { t } = useI18n()
 const themeStore = useThemeStore()
 const isRtl = computed(() => themeStore.locale === 'ar')
+const logoPath = '/images/logo.png'
 </script> 

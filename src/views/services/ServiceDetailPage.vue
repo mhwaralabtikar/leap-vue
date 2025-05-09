@@ -1,5 +1,9 @@
 <template>
-  <div>
+  <!-- Render ServiceNotFoundPage component if service is not found -->
+  <ServiceNotFoundPage v-if="serviceNotFound" />
+  
+  <!-- Render service details if service is found -->
+  <div v-else :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'">
     <!-- Page Header -->
     <section class="py-16 bg-primary text-white">
       <div class="container mx-auto px-4">
@@ -20,6 +24,12 @@
           <div class="lg:col-span-2">
             <div class="rounded-lg overflow-hidden mb-8">
               <img :src="serviceImageUrl" alt="Service Image" class="w-full h-auto" />
+            </div>
+
+            <!-- Service tags -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              <HashTag :tag="serviceTitle" />
+              <HashTag v-for="(feature, index) in serviceFeatures.slice(0, 3)" :key="index" :tag="feature" />
             </div>
 
             <div class="prose prose-lg max-w-none">
@@ -118,6 +128,14 @@
         </div>
       </div>
     </section>
+    
+    <!-- SEO Metadata -->
+    <Head>
+      <title>{{ serviceTitle }} | {{ $t('services.title') }} | LEAP PM</title>
+      <meta name="description" :content="serviceDescription.substring(0, 160)" />
+      <meta name="robots" content="index, follow" />
+      <link rel="canonical" :href="`${siteUrl}/services/${serviceId}`" />
+    </Head>
   </div>
 </template>
 
@@ -128,23 +146,24 @@ import { RouterLink } from 'vue-router'
 import { ChevronRightIcon } from 'lucide-vue-next'
 import ServiceCard from '@/components/ServiceCard.vue'
 import { useServicesStore } from '@/stores/services'
+import HashTag from '@/components/HashTag.vue'
+import ServiceNotFoundPage from '@/views/errors/detail/ServiceNotFoundPage.vue'
+import { useI18n } from 'vue-i18n'
+import { Head } from '@vueuse/head'
+import { useAppStore } from '@/stores/app'
 
+const { t } = useI18n()
 const route = useRoute()
 const router = useRouter()
 const servicesStore = useServicesStore()
+const appStore = useAppStore()
+const siteUrl = appStore.config?.siteUrl || 'https://leap-pm.com'
 
 // Get current service based on route params
 const serviceId = computed(() => route.params.id as string)
 const service = computed(() => {
-  const found = servicesStore.getServiceById(serviceId.value)
+  const found = servicesStore.getServiceById(serviceId)
   return found || null // Return null if service not found
-})
-
-// Redirect to not found page if service doesn't exist
-onMounted(() => {
-  if (!service.value) {
-    router.replace('/services/not-found')
-  }
 })
 
 // Get all services from the store
@@ -152,7 +171,7 @@ const allServices = computed(() => servicesStore.services)
 
 // Find the current service
 const currentService = computed(() => 
-  servicesStore.getServiceById(serviceId.value) || allServices.value[0]
+  servicesStore.getServiceById(serviceId) || allServices.value[0]
 )
 
 // Service details
@@ -163,7 +182,7 @@ const serviceFeatures = computed(() => currentService.value.features || [])
 
 // Related services - 3 random services excluding current one
 const relatedServices = computed(() => {
-  const otherServices = allServices.value.filter(s => s.id !== serviceId.value)
+  const otherServices = allServices.value.filter(s => s.id !== serviceId)
   return otherServices.sort(() => 0.5 - Math.random()).slice(0, 3).map(service => ({
     ...service,
     link: `/services/${service.id}`
@@ -183,4 +202,7 @@ const caseStudies = [
     image: 'https://picsum.photos/id/324/600/400'
   }
 ]
+
+// Service not found state
+const serviceNotFound = computed(() => !service.value)
 </script>

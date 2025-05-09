@@ -120,7 +120,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { FileSearchIcon, SearchIcon, HomeIcon, MessageSquareIcon, ArrowRightIcon } from 'lucide-vue-next'
@@ -137,8 +137,8 @@ const siteUrl = appStore.config?.siteUrl || 'https://leap-pm.com'
 
 // Handle search query
 function performSearch() {
-  if (searchQuery.value.trim()) {
-    router.push({
+  if (searchQuery.value.trim() && router && typeof router?.push === 'function') {
+    router?.push({
       path: '/search',
       query: { q: searchQuery.value }
     })

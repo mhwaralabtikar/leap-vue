@@ -3,6 +3,7 @@ import { RouterView } from 'vue-router'
 import { useThemeStore } from './stores/theme'
 import { useAppStore } from './stores/app'
 import { useLocaleStore } from './stores/locale'
+import { useProjectsStore } from './stores/projects'
 import { useI18n } from 'vue-i18n'
 import { onMounted, watch, computed, ref } from 'vue'
 import NavBar from './components/NavBar.vue'
@@ -11,12 +12,17 @@ import BackToTop from './components/BackToTop.vue'
 import PageProgress from './components/PageProgress.vue'
 import LoadingScreen from './components/LoadingScreen.vue'
 import { Toaster } from '@/components/ui/sonner'
+import { useHashTagHandler } from './composables/useHashTagHandler'
 
 const themeStore = useThemeStore()
 const appStore = useAppStore()
 const localeStore = useLocaleStore()
+const projectsStore = useProjectsStore()
 const { locale } = useI18n()
 const loadingCompleted = ref(false)
+
+// Initialize hashtag handler
+useHashTagHandler()
 
 // Sync i18n locale with theme store
 watch(() => locale.value, (newLocale) => {
@@ -30,12 +36,37 @@ function handleLoadingComplete() {
   loadingCompleted.value = true
 }
 
+// Initialize core app data
+async function initAppData() {
+  appStore.updateLoadingProgress(60, 'Loading content...')
+  
+  try {
+    // Preload project data to improve user experience
+    await projectsStore.fetchProjects()
+  } catch (error) {
+    console.error('Error preloading app data:', error)
+  }
+  
+  appStore.updateLoadingProgress(80, 'Almost ready...')
+}
+
 // Ensure theme and locale are properly initialized
-onMounted(() => {
+onMounted(async () => {
   localeStore.initLocale()
   
   // Initialize app state
   appStore.initApp()
+  
+  // Preload core data
+  await initAppData()
+  
+  // Complete loading
+  setTimeout(() => {
+    appStore.updateLoadingProgress(100, 'Ready!')
+    setTimeout(() => {
+      appStore.stopLoading()
+    }, 300)
+  }, 500)
 })
 
 // Detect RTL mode for proper styling

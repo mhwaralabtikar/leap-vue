@@ -15,7 +15,7 @@
           <div class="relative inline-block">
             <div class="text-9xl font-bold text-primary/20 dark:text-primary/10">404</div>
             <div class="absolute inset-0 flex items-center justify-center">
-              <BriefcaseXIcon class="h-24 w-24 text-primary/60" />
+              <BriefcaseIcon class="h-24 w-24 text-primary/60" />
             </div>
           </div>
           
@@ -69,7 +69,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
-import { BriefcaseXIcon, BriefcaseIcon, SearchIcon, HomeIcon } from 'lucide-vue-next'
+import { BriefcaseIcon, SearchIcon, HomeIcon, XIcon } from 'lucide-vue-next'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Head } from '@vueuse/head'
@@ -83,8 +83,8 @@ const siteUrl = appStore.config?.siteUrl || 'https://leap-pm.com'
 
 // Handle search query
 function performSearch() {
-  if (searchQuery.value.trim()) {
-    router.push({
+  if (searchQuery.value.trim() && router && typeof router?.push === 'function') {
+    router?.push({
       path: '/jobs',
       query: { q: searchQuery.value }
     })

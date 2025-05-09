@@ -502,7 +502,8 @@ function handleFileUpload(event: Event) {
     form.resume = file
     // Validate in the background
     nextTick(async () => {
-      await validateField('resume', file)
+      // @ts-ignore
+      await validateField('resume', {})
     })
   }
 }

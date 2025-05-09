@@ -2,7 +2,7 @@ import { createApp } from './main'
 import { createWebHistory } from 'vue-router'
 
 // Create app for client-side rendering with browser history
-const { app, router, pinia } = createApp(createWebHistory())
+const { app, router, pinia, head } = createApp(createWebHistory())
 
 // Restore Pinia state if available
 if (window.__INITIAL_STATE__) {

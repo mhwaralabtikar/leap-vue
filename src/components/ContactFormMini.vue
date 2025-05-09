@@ -187,7 +187,7 @@ const form = reactive({
 })
 
 // Validate on change with optimized performance using nextTick
-async function validateOnChange(field, value) {
+async function validateOnChange(field: 'name' | 'email' | 'message' | 'privacyAgreed', value: any) {
   form[field] = value
   
   // Set field value for validation

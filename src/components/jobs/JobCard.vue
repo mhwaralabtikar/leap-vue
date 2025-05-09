@@ -235,8 +235,8 @@ function toggleBookmark() {
 }
 
 function navigateToDetail() {
-  if (props.clickable) {
-    router.push(`/jobs/${props.job.id}`)
+  if (props.clickable && router && typeof router?.push === 'function') {
+    router?.push(`/jobs/${props.job.id}`)
   }
 }
 
