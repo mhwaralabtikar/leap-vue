@@ -42,7 +42,7 @@ async function initAppData() {
   
   try {
     // Preload project data to improve user experience
-    await projectsStore.fetchProjects()
+    // await projectsStore.fetchProjects()
   } catch (error) {
     console.error('Error preloading app data:', error)
   }
