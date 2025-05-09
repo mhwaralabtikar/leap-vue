@@ -430,14 +430,14 @@ const job = computed(() => {
 const similarJobs = computed(() => {
   // Get jobs in the same department, or others if there aren't enough
   const sameDepartment = jobsStore.jobs
-    .filter(j => j.id !== jobId && j.department === job.department)
+    .filter(j => j.id !== jobId && j.department === job.value?.department)
   
   let related = [...sameDepartment]
   
   // If we don't have 3 jobs in the same department, add others
   if (related.length < 3) {
     const others = jobsStore.jobs
-      .filter(j => j.id !== jobId && j.department !== job.department)
+      .filter(j => j.id !== jobId && j.department !== job.value?.department)
     
     // Randomize the others array
     const randomOthers = [...others].sort(() => 0.5 - Math.random())
@@ -558,11 +558,11 @@ const getShareUrl = () => {
 }
 
 const getShareTitle = () => {
-  return `${job?.title} - LEAP PM`
+  return `${job.value?.title} - LEAP PM`
 }
 
 const getShareText = () => {
-  return `${job?.title} - ${job?.location} | ${job?.type}`
+  return `${job.value?.title} - ${job.value?.location} | ${job.value?.type}`
 }
 
 // Main share function using navigator.share if available

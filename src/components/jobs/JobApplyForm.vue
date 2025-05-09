@@ -1,5 +1,6 @@
 <template>
   <div class="job-application-form rounded-xl bg-card p-6 border border-border/50 shadow-sm">
+    <!-- @ts-ignore -->
     <Form @submit="onSubmit">
       <div class="space-y-6">
         <!-- Form Title -->
@@ -358,10 +359,10 @@
         </div>
         
         <!-- Error Message -->
-        <div v-if="errorMessage" class="mt-6 rounded-lg bg-destructive/10 border border-destructive/20 p-4 text-destructive">
+        <div v-if="showErrorAlert" class="mt-6 rounded-lg bg-destructive/10 border border-destructive/20 p-4 text-destructive">
           <div class="flex items-center">
             <AlertCircleIcon class="h-5 w-5 mr-2" />
-            <p>{{ errorMessage }}</p>
+            <p>{{ formErrorMessage }}</p>
           </div>
         </div>
       </div>
@@ -480,6 +481,23 @@ const form = reactive({
   privacyPolicy: false
 })
 
+// UI states for form feedback
+const showErrorAlert = ref(false)
+const formErrorMessage = ref('')
+const formState = ref<'idle' | 'submitting' | 'success' | 'error'>('idle')
+const selectedFileName = ref('')
+const fileInputRef = ref<HTMLInputElement | null>(null)
+
+// Helper function to generate a random ID for the application
+function generateRandomId() {
+  return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+}
+
+// Scroll to top of the form
+function scrollToTop() {
+  window.scrollTo({ top: window.scrollY - 300, behavior: 'smooth' })
+}
+
 // Update form values and validate
 async function updateFormValue(field: string, value: any) {
   // Update local form state immediately (no delay)
@@ -527,16 +545,39 @@ function removeFile() {
   })
 }
 
+// Function to reset the form
+function resetForm(options: { values: Record<string, any> }) {
+  // Reset form state
+  Object.keys(form).forEach(key => {
+    if (key in options.values) {
+      // @ts-ignore
+      form[key] = options.values[key]
+    }
+  })
+  
+  // Reset validation state
+  validate()
+}
+
 // Form submission handler
 const onSubmit = handleSubmit(async (values) => {
   try {
     isSubmitting.value = true
-    errorMessage.value = ''
+    showErrorAlert.value = false
+    
+    // Validate entire form
+    const result = await validate()
+    if (!result.valid) {
+      showErrorAlert.value = true
+      formErrorMessage.value = t('jobs.form.errors.formErrors') || 'Please check the form for errors'
+      scrollToTop()
+      return
+    }
     
     // Create FormData for file upload
     const formData = new FormData()
     formData.append('jobId', props.jobId)
-    if (props.jobTitle) formData.append('jobTitle', props.jobTitle)
+    formData.append('jobTitle', props.jobTitle || '')
     
     // Add all form fields to FormData
     Object.entries(values).forEach(([key, value]) => {
@@ -549,59 +590,73 @@ const onSubmit = handleSubmit(async (values) => {
       }
     })
     
-    // Simulate API call
+    // Simulate API call with timeout
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    // In a real application, you would send the formData to an API endpoint
-    // const response = await fetch('/api/job-applications', {
-    //   method: 'POST',
-    //   body: formData
-    // })
-    // 
-    // if (!response.ok) throw new Error('Failed to submit application')
-    // const data = await response.json()
+    // Generate mock response ID
+    const applicationId = generateRandomId()
     
-    const mockResponseData = {
-      id: Math.random().toString(36).substring(2),
-      status: 'submitted',
+    // Reset form 
+    resetForm({
+      values: {
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        resume: null,
+        coverLetter: '',
+        address: '',
+        city: '',
+        state: '',
+        postalCode: '',
+        country: '',
+        linkedinProfile: '',
+        portfolioUrl: '',
+        currentCompany: '',
+        currentPosition: '',
+        yearsOfExperience: '',
+        highestEducation: '',
+        expectedSalary: '',
+        noticePeriod: '',
+        referralSource: '',
+        heardFrom: [],
+        eligibilityStatus: false,
+        relocate: false,
+        consentToPolicy: false
+      }
+    })
+    
+    if (fileInputRef.value) {
+      fileInputRef.value.value = ''
+    }
+    selectedFileName.value = ''
+    
+    // Show success UI
+    formState.value = 'success'
+    
+    // Create mock application data
+    const applicationData = {
+      id: applicationId,
+      jobId: props.jobId,
+      jobTitle: props.jobTitle,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
       submittedAt: new Date().toISOString(),
-      ...Object.fromEntries(
-        Object.entries(values).map(([key, value]) => {
-          if (key === 'resume' && value instanceof File) {
-            return [key, value.name]
-          }
-          return [key, value]
-        })
-      )
+      status: 'submitted'
     }
     
-    isSuccess.value = true
-    emit('success', mockResponseData)
+    // Emit success event with application ID
+    emit('success', applicationData)
     
-    // Reset form after successful submission
-    setTimeout(() => {
-      form.firstName = ''
-      form.lastName = ''
-      form.email = ''
-      form.phone = ''
-      form.address = ''
-      form.city = ''
-      form.state = ''
-      form.postalCode = ''
-      form.country = ''
-      form.resume = null
-      form.coverLetter = ''
-      form.eligibilityConfirmed = false
-      form.privacyPolicy = false
-      showAddressFields.value = false
-      // Reset form validation state
-      // In a real app, you might want to reset the form completely
-    }, 3000)
+    scrollToTop()
     
   } catch (error) {
     console.error('Error submitting application:', error)
-    errorMessage.value = t('jobs.form.errors.submissionFailed') || 'Failed to submit application. Please try again.'
-    emit('error', errorMessage.value)
+    showErrorAlert.value = true
+    formErrorMessage.value = t('jobs.form.errors.submissionError') || 'An error occurred. Please try again'
+    scrollToTop()
+    emit('error', error instanceof Error ? error.message : 'An error occurred')
   } finally {
     isSubmitting.value = false
   }

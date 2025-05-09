@@ -1,4 +1,5 @@
 <template>
+  <!-- @ts-ignore -->
   <Form @submit="onSubmit" class="space-y-4">
     <!-- Error Alert -->
     <div 
@@ -347,8 +348,8 @@ const form = reactive({
 })
 
 // Validate on change with optimized performance using nextTick
-async function validateOnChange(field, value) {
-  form[field] = value
+async function validateOnChange(field: keyof typeof form, value: any) {
+  (form[field] as any) = value
   
   // Set field value for validation
   setFieldValue(field, value)

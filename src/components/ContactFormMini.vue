@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- @ts-ignore -->
     <Form @submit="onSubmit" class="space-y-4">
       <!-- Error Alert -->
       <div 
@@ -187,8 +188,8 @@ const form = reactive({
 })
 
 // Validate on change with optimized performance using nextTick
-async function validateOnChange(field: 'name' | 'email' | 'message' | 'privacyAgreed', value: any) {
-  form[field] = value
+async function validateOnChange(field: keyof typeof form, value: any) {
+  (form[field] as any) = value
   
   // Set field value for validation
   setFieldValue(field, value)
@@ -209,14 +210,14 @@ const onSubmit = handleSubmit(async (values) => {
     const result = await validate()
     if (!result.valid) {
       showErrorAlert.value = true
-      formErrorMessage.value = 'Please correct the errors in the form before submitting.'
+      formErrorMessage.value = t('contact.errors.formErrors') || 'Please check the form for errors.'
       return
     }
     
-    // Simulate API call with timeout
+    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
     
-    // Reset form after successful submission
+    // Reset form
     form.name = ''
     form.email = ''
     form.message = ''
@@ -225,18 +226,18 @@ const onSubmit = handleSubmit(async (values) => {
     // Show success message
     isSuccess.value = true
     
-    // Emit success event
-    emits('success')
+    // Emit success event with form values
+    emits('success', values)
     
-    // Hide success message after 3 seconds
+    // Hide success message after 5 seconds
     setTimeout(() => {
       isSuccess.value = false
-    }, 3000)
+    }, 5000)
     
   } catch (error) {
     console.error('Error submitting form:', error)
     showErrorAlert.value = true
-    formErrorMessage.value = 'An error occurred while submitting the form. Please try again.'
+    formErrorMessage.value = t('contact.errors.submissionError') || 'An error occurred while submitting the form. Please try again.'
   } finally {
     isSubmitting.value = false
   }

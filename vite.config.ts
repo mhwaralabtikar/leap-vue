@@ -1,7 +1,6 @@
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import vueDevTools from 'vite-plugin-vue-devtools'
 import path from 'node:path'
 // import { cloudflare } from "@cloudflare/vite-plugin";
 

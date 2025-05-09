@@ -1,5 +1,6 @@
 <template>
   <div class="w-full">
+    <!-- @ts-ignore -->
     <Form @submit="onSubmit" class="space-y-8">
       <!-- Error Alert Message -->
       <transition
@@ -513,8 +514,8 @@ async function validateOnBlur(field: 'message' | 'name' | 'email' | 'subject' | 
 }
 
 // Validate on change with optimized performance using nextTick
-async function validateOnChange(field: 'message' | 'name' | 'email' | 'subject' | 'phone' | 'inquiryType' | 'privacyAgreed', value: any) {
-  form[field] = value
+async function validateOnChange(field: keyof typeof form, value: any) {
+  (form[field] as any) = value
   
   // Set field value for validation
   setFieldValue(field, value)
