@@ -299,114 +299,73 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, ref, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { ChevronRightIcon, CalendarIcon, ClockIcon, FacebookIcon, XIcon, LinkedinIcon, Share2Icon } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import CtaSection from '@/components/CtaSection.vue'
+import { useBlogStore } from '@/stores/blog'
 
 const { t } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const linkCopied = ref(false)
+const blogStore = useBlogStore()
 
-// Sample blog post data - in a real app, this would come from an API or store
-const postsData = [
-  {
-    id: 'future-of-project-management',
-    title: 'The Future of Project Management in the Middle East',
-    category: 'Industry Insights',
-    date: 'June 15, 2023',
-    readTime: 8,
-    imageUrl: 'https://picsum.photos/id/20/1200/600',
-    excerpt: 'As the Middle East continues its ambitious development trajectory, project management practices are evolving to meet the unique challenges and opportunities of the region.',
-    author: {
-      name: 'Abdullah Al-Faisal',
-      role: 'CEO & Founder',
-      avatar: 'https://picsum.photos/id/177/300/300',
-      bio: 'Abdullah brings over 15 years of experience in project management across the Middle East, with a particular focus on large-scale infrastructure and construction projects.'
-    },
-    tags: ['Project Management', 'Middle East', 'Digital Transformation', 'Vision 2030']
-  },
-  {
-    id: 'cost-management-techniques',
-    title: 'Advanced Cost Management Techniques for Complex Projects',
-    category: 'Best Practices',
-    date: 'May 28, 2023',
-    readTime: 6,
-    imageUrl: 'https://picsum.photos/id/15/1200/600',
-    excerpt: 'Effective cost management is crucial for project success. Learn about advanced techniques to control costs in complex, multi-stakeholder projects.',
-    author: {
-      name: 'Sarah Al-Qahtani',
-      role: 'Director of Operations',
-      avatar: 'https://picsum.photos/id/176/300/300',
-      bio: 'Sarah specializes in operational efficiency and cost management, with extensive experience in optimizing project delivery processes.'
-    },
-    tags: ['Cost Management', 'Project Controls', 'Budget', 'EVM']
-  },
-  {
-    id: 'bim-implementation',
-    title: 'BIM Implementation Strategies for Saudi Construction Projects',
-    category: 'Technology',
-    date: 'May 10, 2023',
-    readTime: 7,
-    imageUrl: 'https://picsum.photos/id/60/1200/600',
-    excerpt: 'Building Information Modeling (BIM) is transforming construction project management. Discover key strategies for successful implementation.',
-    author: {
-      name: 'Mohammad Al-Harbi',
-      role: 'Technical Director',
-      avatar: 'https://picsum.photos/id/175/300/300',
-      bio: 'Mohammad is an expert in digital construction technologies with a focus on BIM implementation and integration with project management processes.'
-    },
-    tags: ['BIM', 'Construction', 'Digital Twins', 'Technology']
-  },
-  {
-    id: 'risk-management-saudi',
-    title: 'Risk Management in Saudi Megaprojects: Lessons Learned',
-    category: 'Case Studies',
-    date: 'April 22, 2023',
-    readTime: 9,
-    imageUrl: 'https://picsum.photos/id/28/1200/600',
-    excerpt: 'Saudi Arabia is home to some of the world\'s most ambitious megaprojects. Explore key risk management lessons from these complex initiatives.',
-    author: {
-      name: 'Abdullah Al-Faisal',
-      role: 'CEO & Founder',
-      avatar: 'https://picsum.photos/id/177/300/300',
-      bio: 'Abdullah brings over 15 years of experience in project management across the Middle East, with a particular focus on large-scale infrastructure and construction projects.'
-    },
-    tags: ['Risk Management', 'Megaprojects', 'Saudi Arabia', 'Case Study']
-  }
-]
-
-// Get the current post based on route params
-const postId = computed(() => route.params.id)
+// Get current post based on route params
+const postId = computed(() => route.params.id as string)
 const post = computed(() => {
-  const found = postsData.find(p => p.id === postId.value)
-  return found || postsData[0] // Default to first post if not found
+  const found = blogStore.getBlogPostById(postId.value)
+  return found || null // Return null if post not found
+})
+
+// Redirect to not found page if post doesn't exist
+onMounted(() => {
+  if (!post.value) {
+    router.replace('/blog/not-found')
+  }
 })
 
 // Recent posts (excluding current one)
 const recentPosts = computed(() => {
-  return postsData
+  return blogStore.blogPosts
     .filter(p => p.id !== postId.value)
     .slice(0, 3)
 })
 
 // Related posts (excluding current one)
 const relatedPosts = computed(() => {
-  return postsData
-    .filter(p => p.id !== postId.value)
-    .slice(0, 3)
+  // First try to get posts in the same category
+  const sameCategory = blogStore.blogPosts
+    .filter(p => p.id !== postId.value && p.category === post.value.category)
+  
+  let related = [...sameCategory]
+  
+  // If we don't have 3 posts in the same category, add others
+  if (related.length < 3) {
+    const others = blogStore.blogPosts
+      .filter(p => p.id !== postId.value && p.category !== post.value.category)
+    
+    // Randomize the others array
+    const randomOthers = [...others].sort(() => 0.5 - Math.random())
+    
+    // Add enough to make up 3 total
+    related = [...related, ...randomOthers.slice(0, 3 - related.length)]
+  }
+  
+  return related.slice(0, 3)
 })
 
 // Blog categories
-const categories = [
-  { name: 'Industry Insights', count: 8 },
-  { name: 'Best Practices', count: 12 },
-  { name: 'Technology', count: 6 },
-  { name: 'Case Studies', count: 9 },
-  { name: 'Project Management', count: 15 }
-]
+const categories = computed(() => {
+  const categoryCounts = blogStore.blogPosts.reduce((acc, post) => {
+    acc[post.category] = (acc[post.category] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+  
+  return Object.entries(categoryCounts).map(([name, count]) => ({ name, count }))
+})
 
 // Sharing functionality
 const getShareUrl = () => {

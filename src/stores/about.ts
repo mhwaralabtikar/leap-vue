@@ -52,30 +52,38 @@ export const useAboutStore = defineStore('about', () => {
     {
       name: 'Ahmed Al-Farsi',
       role: 'CEO & Founder',
+      avatar: 'https://picsum.photos/id/1005/300/300',
       image: 'https://picsum.photos/id/1005/300/300',
       linkedin: '#',
-      email: 'ahmed@leap-pm.com'
+      email: 'ahmed@leap-pm.com',
+      bio: 'Ahmed brings over 15 years of experience in project management across the Middle East, with a particular focus on large-scale infrastructure and construction projects.'
     },
     {
       name: 'Layla Al-Nasser',
       role: 'Head of Operations',
+      avatar: 'https://picsum.photos/id/1011/300/300',
       image: 'https://picsum.photos/id/1011/300/300',
       linkedin: '#',
-      email: 'layla@leap-pm.com'
+      email: 'layla@leap-pm.com',
+      bio: 'Layla specializes in operational efficiency and cost management, with extensive experience in optimizing project delivery processes.'
     },
     {
       name: 'Mohamed Ibrahim',
       role: 'Technical Director',
+      avatar: 'https://picsum.photos/id/1012/300/300',
       image: 'https://picsum.photos/id/1012/300/300',
       linkedin: '#',
-      email: 'mohamed@leap-pm.com'
+      email: 'mohamed@leap-pm.com',
+      bio: 'Mohammad is an expert in digital construction technologies with a focus on BIM implementation and integration with project management processes.'
     },
     {
       name: 'Sara Al-Qahtani',
       role: 'Client Services Manager',
+      avatar: 'https://picsum.photos/id/1027/300/300',
       image: 'https://picsum.photos/id/1027/300/300',
       linkedin: '#',
-      email: 'sara@leap-pm.com'
+      email: 'sara@leap-pm.com',
+      bio: 'Sara is a dedicated client services manager with a strong focus on client satisfaction and project success.'
     }
   ])
 
@@ -94,6 +102,35 @@ export const useAboutStore = defineStore('about', () => {
     { id: 5, name: 'Partner 5', logo: 'https://placehold.co/200x80?text=Partner+5' }
   ])
 
+
+  // Values that define the company
+  const companyValues = ref([
+    {
+      id: 'integrity',
+      title: 'about.values.integrity',
+      description: 'about.values.integrityContent',
+      icon: 'shield'
+    },
+    {
+      id: 'excellence',
+      title: 'about.values.excellence',
+      description: 'about.values.excellenceContent',
+      icon: 'award'
+    },
+    {
+      id: 'innovation',
+      title: 'about.values.innovation',
+      description: 'about.values.innovationContent',
+      icon: 'lightbulb'
+    },
+    {
+      id: 'collaboration',
+      title: 'about.values.collaboration',
+      description: 'about.values.collaborationContent',
+      icon: 'users'
+    }
+  ])
+  
   return {
     companyHistory,
     valueProps,
@@ -101,6 +138,7 @@ export const useAboutStore = defineStore('about', () => {
     values,
     teamMembers,
     stats,
-    partners
+    partners,
+    companyValues
   }
 }) 

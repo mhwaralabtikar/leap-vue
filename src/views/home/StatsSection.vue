@@ -37,7 +37,7 @@ const stats = [
   {
     id: 'countries',
     value: 12,
-    label: t('stats.countries'),
+    label: t('stats.countries'),  
     prefix: '',
     suffix: '+',
     icon: 'globe'

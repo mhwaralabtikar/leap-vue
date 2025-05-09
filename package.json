@@ -9,7 +9,11 @@
     "build-skip-ts-check": "vite build",
     "type-check": "vue-tsc -b",
     "preview": "vite preview",
-    "deploy": "npm run build && wrangler deploy ./worker.ts"
+    "deploy": "npm run build && wrangler deploy ./worker.ts",
+    "ssr:dev": "node server",
+    "ssr:build": "npm run build && npm run build:server",
+    "build:server": "vite build --ssr src/entry-server.ts --outDir dist/server",
+    "ssr:serve": "NODE_ENV=production node server"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",
@@ -17,6 +21,7 @@
     "@tanstack/vue-table": "^8.21.3",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.1.0",
+    "@vueuse/head": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-vue": "^8.6.0",

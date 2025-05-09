@@ -187,67 +187,29 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { ChevronRightIcon } from 'lucide-vue-next'
 import { RouterLink } from 'vue-router'
 import CtaSection from '@/components/CtaSection.vue'
+import { useProjectsStore } from '@/stores/projects'
 
 const route = useRoute()
-
-// Sample projects data - in a real app, this would come from an API or store
-const projectsData = [
-  {
-    id: 'riyadh-metro',
-    title: 'Riyadh Metro',
-    category: 'Transportation',
-    location: 'Saudi Arabia',
-    description: 'A major public transit project in Riyadh, consisting of six metro lines covering the capital city.',
-    imageUrl: 'https://picsum.photos/id/155/800/600',
-    client: 'Royal Commission for Riyadh City',
-    year: '2021',
-    value: 'SAR 85B',
-    duration: '48 months'
-  },
-  {
-    id: 'jazan-airport',
-    title: 'Jazan Airport',
-    category: 'Aviation',
-    location: 'Saudi Arabia',
-    description: 'A new regional airport under construction in Jazan aimed at boosting local infrastructure and connectivity.',
-    imageUrl: 'https://picsum.photos/id/28/800/600'
-  },
-  {
-    id: 'amaala-staff-village',
-    title: 'AMAALA Staff Village',
-    category: 'Residential',
-    location: 'Saudi Arabia',
-    description: 'A dedicated residential and support zone for staff working on the luxury AMAALA development on the Red Sea.',
-    imageUrl: 'https://picsum.photos/id/167/800/600'
-  },
-  {
-    id: 'national-guard-housing',
-    title: 'Saudi National Guard Housing Project',
-    category: 'Housing',
-    location: 'Saudi Arabia',
-    description: 'A residential project providing modern housing units for members of the Saudi National Guard.',
-    imageUrl: 'https://picsum.photos/id/173/800/600'
-  },
-  {
-    id: 'riyadh-bus-stops',
-    title: 'Riyadh Bus Stops & Bus Rapid Transit Project',
-    category: 'Transportation',
-    location: 'Saudi Arabia',
-    description: 'Development of smart bus stops and BRT lines in Riyadh to enhance urban mobility.',
-    imageUrl: 'https://picsum.photos/id/183/800/600'
-  }
-]
+const router = useRouter()
+const projectsStore = useProjectsStore()
 
 // Get the current project based on route params
-const projectId = computed(() => route.params.id)
+const projectId = computed(() => route.params.id as string)
 const project = computed(() => {
-  const found = projectsData.find(p => p.id === projectId.value)
-  return found || projectsData[0] // Default to first project if not found
+  const found = projectsStore.getProjectById(projectId.value)
+  return found || null // Return null if project not found
+})
+
+// Redirect to not found page if project doesn't exist
+onMounted(() => {
+  if (!project.value) {
+    router.replace('/projects/not-found')
+  }
 })
 
 // Services provided for this project
@@ -262,9 +224,26 @@ const services = [
 
 // Related projects (excluding current one)
 const relatedProjects = computed(() => {
-  return projectsData
-    .filter(p => p.id !== projectId.value)
-    .filter(p => p.category === project.value.category || Math.random() > 0.5)
-    .slice(0, 3)
+  // Get projects in the same category, or random ones if there aren't enough
+  const sameCategory = projectsStore.projects.filter(p => 
+    p.id !== projectId.value && p.category === project.value.category
+  )
+  
+  let related = [...sameCategory]
+  
+  // If we don't have 3 projects of the same category, add others
+  if (related.length < 3) {
+    const others = projectsStore.projects.filter(p => 
+      p.id !== projectId.value && p.category !== project.value.category
+    )
+    
+    // Randomize the others array
+    const randomOthers = [...others].sort(() => 0.5 - Math.random())
+    
+    // Add enough to make up 3 total
+    related = [...related, ...randomOthers.slice(0, 3 - related.length)]
+  }
+  
+  return related.slice(0, 3)
 })
 </script>

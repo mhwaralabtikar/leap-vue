@@ -16,6 +16,27 @@
     "cta": "Get Started",
     "learnMore": "Learn More"
   },
+  "loading": {
+    "appTitle": "Loading LEAP PM",
+    "message": "Please wait while we set things up...",
+    "changingPage": "Changing page...",
+    "initializing": "Initializing",
+    "loading": "Loading",
+    "connecting": "Connecting",
+    "ready": "Ready",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "ms": "MS",
+    "maintenanceUpdates": "Maintenance Progress",
+    "maintenanceLatest": "Latest",
+    "maintenanceUpdateServer": "Server Optimization",
+    "maintenanceUpdateServerMessage": "Currently optimizing database performance and server resources.",
+    "maintenanceUpdateBackup": "System Backup",
+    "maintenanceUpdateBackupMessage": "Completed full system backup before implementing changes.",
+    "maintenanceUpdateStart": "Maintenance Started",
+    "maintenanceUpdateStartMessage": "Scheduled maintenance has begun. We appreciate your patience."
+  },
   "home": {
     "title": "Welcome to Leap PM",
     "subtitle": "Your all-in-one project management solution",
@@ -65,11 +86,14 @@
   },
   "clients": {
     "title": "Trusted by Industry Leaders",
-    "subtitle": "We partner with leading organizations across industries to deliver exceptional project management solutions"
+    "subtitle": "We partner with leading organizations across industries to deliver exceptional project management solutions",
+    "trusted": "Trusted By"
   },
   "features": {
     "title": "Powerful Features",
     "subtitle": "Comprehensive tools to manage your projects efficiently",
+    "tagline": "Why Choose Us",
+    "learnMore": "Learn More",
     "feature1": {
       "title": "Intuitive Dashboard",
       "description": "Get a clear overview of your projects with our easy-to-use dashboard"
@@ -81,6 +105,18 @@
     "feature3": {
       "title": "Advanced Analytics",
       "description": "Track progress and make data-driven decisions with detailed reports"
+    },
+    "feature4": {
+      "title": "Timely Delivery",
+      "description": "We understand the importance of deadlines in project management. Our team is committed to delivering high-quality results on schedule."
+    },
+    "feature5": {
+      "title": "Innovative Solutions",
+      "description": "We bring creative thinking and innovative approaches to every project, helping our clients stay ahead in a competitive market."
+    },
+    "feature6": {
+      "title": "24/7 Support",
+      "description": "Our dedicated support team is available around the clock to address any concerns and provide assistance whenever you need it."
     }
   },
   "about": {
@@ -94,6 +130,8 @@
     "ourStoryContent2": "Our journey has been defined by a commitment to innovation, excellence, and client satisfaction. We've successfully delivered hundreds of projects, building long-lasting relationships with clients who trust us to bring their visions to life.",
     "established": "Established",
     "foundedYear": "2008",
+    "since": "Since",
+    "imageCaption": "Our headquarters in the heart of Riyadh",
     "discovery": "Discover",
     "whatWeDo": "What We Do",
     "whatWeDoSubtitle": "Our comprehensive approach to project management ensures successful delivery across all phases of your project lifecycle.",
@@ -102,7 +140,6 @@
     "global": "Regional Reach",
     "globalContent": "We've successfully delivered projects across the Middle East, with a strong focus on the GCC countries.",
     "missionTitle": "Our Mission",
-    "missionContent": "Our mission is to empower organizations to achieve project excellence through innovative solutions, expert guidance, and unwavering commitment to quality and client satisfaction.",
     "visionTitle": "Our Vision",
     "visionContent": "To be the premier project management partner in the region, setting the standard for excellence and innovation in delivering transformative projects that shape our communities.",
     "achievements": "Achievements",
@@ -112,6 +149,7 @@
     "partnerships": "Collaborations",
     "ourPartners": "Our Trusted Partners",
     "ourPartnersSubtitle": "We're proud to collaborate with industry leaders who share our commitment to excellence.",
+    "becomePartner": "Become a Partner",
     "tabs": {
       "company": "Company",
       "mission": "Mission",
@@ -128,6 +166,32 @@
       "innovationContent": "Continuous innovation in our approach",
       "collaboration": "Collaboration",
       "collaborationContent": "Strong collaboration with clients and partners"
+    },
+    "timeline": {
+      "founded": "LEAP PM was founded with a vision to transform project management in the Middle East",
+      "expansion": "Expanded operations across the GCC region with new offices and partnerships",
+      "present": "Currently leading innovation in project management across multiple sectors"
+    },
+    "teamCredo": "Our team is dedicated to excellence, innovation, and building lasting partnerships with our clients to deliver exceptional project outcomes.",
+    "joinOurTeam": "Join Our Team",
+    "achievement": "Award Winner",
+    "awardWinning": "Excellence in Project Management 2023",
+    "featuredPartners": "Featured Partners",
+    "skills": {
+      "1": "Project Management",
+      "2": "Operations",
+      "3": "Technical Services",
+      "4": "Client Services",
+      "5": "Leadership",
+      "6": "Strategy",
+      "7": "Finance",
+      "8": "Engineering"
+    },
+    "faq": {
+      "question1": "How can I become a client?",
+      "answer1": "Contact our team through the contact page to schedule an initial consultation where we can discuss your project needs.",
+      "question2": "What industries do you specialize in?",
+      "answer2": "We specialize in construction, infrastructure, transportation, and technology sectors across the Middle East region."
     }
   },
   "services": {
@@ -138,6 +202,12 @@
     "description": "We offer a wide range of specialized services designed to optimize your project delivery and ensure success at every stage.",
     "viewAll": "View All Services",
     "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "tailoredSolutions": "Tailored Solutions for Project Success",
+    "introDescription1": "LEAP PM provides a comprehensive suite of project management services to ensure successful project delivery. Our team of experienced professionals brings expertise across various industries and project types.",
+    "introDescription2": "We pride ourselves on tailoring our approach to the specific needs of each client, ensuring solutions that align with your business objectives and project requirements.",
+    "getStarted": "Get Started",
+    "learnMoreAboutUs": "Learn More About Us",
     "projectControls": {
       "title": "Project Controls",
       "description": "Comprehensive project oversight including scope, schedule, and cost management."
@@ -190,7 +260,14 @@
       "role": "Development Director",
       "company": "Urban Living Properties",
       "content": "LEAP PM's comprehensive approach to project management has significantly improved our development process. Their team's expertise is unmatched in the industry."
-    }
+    },
+    "highlights": {
+      "exceptional": "Exceptional service",
+      "outstanding": "Outstanding results",
+      "professional": "Highly professional",
+      "communication": "Excellent communication"
+    },
+    "viewMore": "View More Testimonials"
   },
   "blog": {
     "latestNews": "Latest News",
@@ -239,15 +316,31 @@
     "secureForm": "Secure Form",
     "sendAnother": "Send another message",
     "name": "Name",
+    "nameDescription": "Enter your full name as it appears on official documents",
+    "namePlaceholder": "Your name",
     "email": "Email",
+    "emailDescription": "We'll use this email to respond to your inquiry",
+    "emailPlaceholder": "Your email address",
     "phone": "Phone Number",
+    "phoneDescription": "Optional. Include country code for international numbers",
+    "phoneCountry": "Country",
+    "phoneFormatUsPlaceholder": "(555) 123-4567",
+    "phoneFormatInternationalPlaceholder": "123-456-7890",
     "subject": "Subject",
+    "subjectDescription": "A brief summary of your inquiry",
+    "subjectPlaceholder": "What is your inquiry about?",
     "message": "Message",
+    "messageDescription": "Provide as much detail as possible about your inquiry (min 10, max 500 characters)",
     "messagePlaceholder": "Tell us about your inquiry or provide details about how we can help you...",
     "submit": "Send Message",
     "submitting": "Sending...",
     "valid": "Looks good!",
     "inquiryType": "What can we help you with?",
+    "inquiryTypeDescription": "Select the category that best matches your inquiry",
+    "modalDescription": "Have questions or need assistance? Send us a message and we'll get back to you soon.",
+    "termsFormDescription": "Have questions about our terms of service? Send us a message and we'll get back to you.",
+    "privacyFormDescription": "Have questions about our privacy policy? Send us a message and we'll get back to you.",
+    "privacyPolicyMini": "I agree to the <a href='/legal/privacy' class='text-primary hover:underline'>Privacy Policy</a>",
     "inquiryTypes": {
       "general": "General Inquiry",
       "services": "Our Services",
@@ -255,6 +348,7 @@
       "support": "Support"
     },
     "privacyPolicy": "I agree to the <a href='/privacy' class='text-primary hover:underline'>privacy policy</a> and consent to having my data processed.",
+    "privacyDescription": "Required to process your submission",
     "successTitle": "Message Sent Successfully!",
     "success": "Thank you for contacting us. We've received your message and will respond shortly.",
     "errors": {
@@ -417,7 +511,6 @@
     "about": "About the Role",
     "responsibilities": "Responsibilities",
     "requirements": "Requirements",
-    "benefits": "Benefits",
     "aboutCompany": "About LEAP PM",
     "companyDescription": "LEAP PM is a leading project management consultancy specializing in providing comprehensive project management solutions across the Middle East. Our team consists of industry experts who are passionate about delivering excellence and innovation in project delivery.",
     "diversityStatement": "We are committed to creating a diverse and inclusive workplace where all employees can thrive. We welcome applications from candidates of all backgrounds and experiences.",
@@ -428,19 +521,91 @@
     "similarJobs": "Similar Jobs",
     "viewDetails": "View Details",
     "form": {
-      "apply": "Apply for this Position",
+      "apply": "Apply for this position",
+      "title": "Apply for this Position",
+      "subtitle": "Fill out the form below to apply",
+      "personalInfo": "Personal Information",
       "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
       "lastName": "Last Name",
-      "email": "Email",
-      "phone": "Phone",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email Address",
+      "emailPlaceholder": "your@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (123) 456-7890",
+      "address": "Address",
+      "addressLine": "Street Address",
+      "addressPlaceholder": "Enter your street address",
+      "city": "City",
+      "cityPlaceholder": "Enter your city",
+      "state": "State/Province",
+      "statePlaceholder": "Enter your state or province",
+      "postalCode": "ZIP/Postal Code",
+      "postalCodePlaceholder": "Enter your postal code",
+      "country": "Country",
+      "countryPlaceholder": "Select your country",
+      "hideAddress": "Hide Address Fields",
+      "showAddress": "Add Address Information",
+      "applicationDetails": "Application Details",
       "resume": "Resume/CV",
-      "dragFile": "Drag your file here or click to browse",
-      "supportedFormats": "Supported formats: PDF, DOC, DOCX (Max 5MB)",
+      "resumePrompt": "Click to upload your resume (PDF or DOCX)",
       "coverLetter": "Cover Letter (Optional)",
-      "coverLetterPlaceholder": "Tell us why you're a good fit for this position",
-      "consent": "I consent to LEAP PM processing my personal data for recruitment purposes. I understand that my information will be handled in accordance with the company's privacy policy.",
-      "submit": "Submit Application"
-    }
+      "coverLetterPlaceholder": "Tell us why you're interested in this position and why you'd be a good fit...",
+      "dragFile": "Drag and drop your file here or click to browse",
+      "supportedFormats": "Supported formats: PDF, DOC, DOCX (Max 5MB)",
+      "privacyPolicy": "I consent to LEAP PM processing my data for recruitment purposes and agree to the <a href='/legal/privacy' class='text-primary hover:underline'>privacy policy</a>.",
+      "privacyPolicyMini": "I agree to the <a href='/legal/privacy' class='text-primary hover:underline'>Privacy Policy</a>",
+      "submit": "Submit Application",
+      "submitting": "Submitting...",
+      "successTitle": "Application Submitted!",
+      "successMessage": "Your application has been successfully submitted. We'll be in touch soon!",
+      "eligibility": "I confirm I am legally eligible to work in this country",
+      "eligibilityDescription": "Required for legal compliance",
+      "errors": {
+        "title": "Form Error",
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "validEmail": "Please enter a valid email address",
+        "validPhone": "Please enter a valid phone number",
+        "resumeRequired": "Resume is required",
+        "consentRequired": "You must agree to the privacy policy",
+        "formErrors": "Please correct the errors in the form before submitting",
+        "submissionError": "An error occurred while submitting your application. Please try again.",
+        "eligibilityRequired": "You must confirm your eligibility to work"
+      },
+      "success": {
+        "title": "Application Submitted!",
+        "message": "Thank you for your interest in joining our team. We've received your application and will review it soon. We'll be in touch if your qualifications match our needs."
+      }
+    },
+    "easyApply": "Quick Apply",
+    "saveJob": "Save Job",
+    "saved": "Saved",
+    "savedSuccess": "Job Saved",
+    "savedSuccessDescription": "This job has been saved to your profile",
+    "applicationSubmitted": "Application Submitted",
+    "applicationSubmittedDescription": "Your application has been successfully submitted",
+    "quickApply": {
+      "title": "Quick Apply",
+      "description": "Submit your application quickly with minimal information",
+      "applyFor": "Apply for"
+    },
+    "apply": {
+      "title": "Apply for",
+      "error": "Error Loading Job",
+      "jobNotFound": "Job not found",
+      "loadError": "Error loading job details"
+    },
+    "jobDetails": "Job Details",
+    "postedDate": "Posted Date",
+    "viewFullJobDescription": "View Full Job Description",
+    "otherPositions": "Interested in Other Positions?",
+    "otherPositionsText": "Browse our current job openings and find the perfect role for your skills and experience.",
+    "viewAllOpenings": "View All Job Openings",
+    "backToJob": "Back to Job Details",
+    "position": "Position",
+    "interestedInRole": "Interested in this role?",
+    "applyDescription": "We've created a dedicated application page to provide you with the best experience. Click below to start your application."
   },
   "footer": {
     "about": "About LEAP PM",
@@ -471,7 +636,226 @@
     "subscribe": "Subscribe",
     "allRightsReserved": "All rights reserved.",
     "aboutUs": "About Us",
-    "jobs": "Jobs",
-    "services": "Services"
+    "jobs": "Jobs"
+  },
+  "legal": {
+    "lastUpdated": "Last Updated",
+    "backToTop": "Back to Top",
+    "tableOfContents": "Table of Contents",
+    "contact": {
+      "title": "Questions or Concerns?",
+      "text": "If you have any questions about our terms or privacy policy, please feel free to contact our legal team.",
+      "button": "Contact Us"
+    },
+    "dataProtectionOfficer": "Data Protection Officer",
+    "dataProtectionText": "If you have any questions about how we process your personal data or would like to exercise your rights, please contact our Data Protection Officer.",
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "items": {
+        "canTermsChange": {
+          "question": "Can these terms change?",
+          "answer": "Yes. We may update these terms from time to time. We will notify you of any significant changes before they take effect. Continued use of our services after the changes become effective constitutes acceptance of the updated terms."
+        },
+        "whatPersonalData": {
+          "question": "What personal data do you collect?",
+          "answer": "We collect various types of personal data as detailed in our Privacy Policy, including contact information, account credentials, and usage data. We only collect what is necessary to provide our services and improve user experience."
+        },
+        "howTerminate": {
+          "question": "How can I terminate my account?",
+          "answer": "You can terminate your account at any time by contacting our customer support team. Upon termination, we will handle your data as described in our Privacy Policy."
+        },
+        "whoContact": {
+          "question": "Who can I contact with legal concerns?",
+          "answer": "For any legal concerns or questions about our terms and policies, you can contact our legal team at <a href='mailto:legal@leap-pm.com' class='text-primary'>legal@leap-pm.com</a>."
+        },
+        "whatRights": {
+          "question": "What rights do I have regarding my data?",
+          "answer": "Depending on your location, you may have various rights regarding your personal data, including the right to access, correct, delete, or export your information. Please refer to the Data Rights section in our Privacy Policy for more details."
+        }
+      }
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "subtitle": "Please read these terms and conditions carefully before using our services.",
+      "lastUpdatedDate": "June 1, 2023",
+      "toc": {
+        "acceptance": "Acceptance of Terms",
+        "services": "Services Description",
+        "account": "Account Registration and Security",
+        "intellectual": "Intellectual Property Rights",
+        "userContent": "User Content and Conduct",
+        "prohibited": "Prohibited Activities",
+        "termination": "Termination",
+        "disclaimer": "Disclaimer of Warranties",
+        "limitation": "Limitation of Liability",
+        "indemnification": "Indemnification",
+        "governing": "Governing Law",
+        "changes": "Changes to Terms",
+        "contact": "Contact Information"
+      },
+      "sections": {
+        "acceptance": "<p>By accessing or using LEAP PM's services, you agree to be bound by these Terms and Conditions and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services.</p><p>These Terms and Conditions apply to all visitors, users, and others who access or use our services.</p>",
+        "services": "<p>LEAP PM provides project management and related services through our website, mobile applications, and other platforms. Our services include but are not limited to project planning, task management, resource allocation, reporting, and team collaboration tools.</p><p>We reserve the right to modify or discontinue, temporarily or permanently, any part of our services with or without notice.</p>",
+        "account": "<p>To access certain features of our services, you may be required to create an account. You must provide accurate and complete information and keep your account information updated.</p><p>You are responsible for safeguarding the password that you use to access our services and for any activities or actions under your password.</p><p>You agree not to disclose your password to any third party. You must notify us immediately upon becoming aware of any breach of security or unauthorized use of your account.</p>",
+        "intellectual": "<p>Our services and their entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, and audio, and the design, selection, and arrangement thereof) are owned by LEAP PM, its licensors, or other providers and are protected by copyright, trademark, patent, trade secret, and other intellectual property laws.</p><p>These Terms and Conditions permit you to use our services for your personal, non-commercial use only. You must not reproduce, distribute, modify, create derivative works of, publicly display, publicly perform, republish, download, store, or transmit any of the material on our services.</p>",
+        "userContent": "<p>Our services may allow you to post, link, store, share, and otherwise make available certain information, text, graphics, videos, or other material. You are responsible for the content that you post to our services, including its legality, reliability, and appropriateness.</p><p>By posting content to our services, you grant us the right to use, reproduce, modify, perform, display, distribute, and otherwise disclose to third parties any such material according to your account settings.</p><p>You represent and warrant that you own or control all rights in and to the content you post and that such content does not violate these Terms and Conditions.</p>",
+        "prohibited": "<p>You may use our services only for lawful purposes and in accordance with these Terms and Conditions. You agree not to use our services:</p><ul><li>In any way that violates any applicable federal, state, local, or international law or regulation</li><li>For the purpose of exploiting, harming, or attempting to exploit or harm minors in any way</li><li>To transmit, or procure the sending of, any advertising or promotional material, including any \"junk mail\", \"chain letter\", \"spam\", or any other similar solicitation</li><li>To impersonate or attempt to impersonate LEAP PM, a LEAP PM employee, another user, or any other person or entity</li><li>To engage in any other conduct that restricts or inhibits anyone's use or enjoyment of our services, or which, as determined by us, may harm LEAP PM or users of our services or expose them to liability</li></ul>",
+        "termination": "<p>We may terminate or suspend your account and bar access to our services immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever and without limitation, including but not limited to a breach of these Terms and Conditions.</p><p>If you wish to terminate your account, you may simply discontinue using our services or contact us to request account deletion.</p><p>All provisions of these Terms and Conditions which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>",
+        "disclaimer": "<p>Your use of our services is at your sole risk. Our services are provided on an \"AS IS\" and \"AS AVAILABLE\" basis. LEAP PM expressly disclaims all warranties of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement.</p><p>LEAP PM makes no warranty that our services will meet your requirements, be available on an uninterrupted, timely, secure, or error-free basis, or be accurate, reliable, free of viruses or other harmful code, complete, legal, or safe.</p>",
+        "limitation": "<p>In no event shall LEAP PM, its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use our services.</p><p>To the maximum extent permitted by applicable law, LEAP PM's total liability to you for any damages shall not exceed the amount paid by you to LEAP PM during the six (6) months prior to bringing the claim.</p>",
+        "indemnification": "<p>You agree to defend, indemnify, and hold harmless LEAP PM, its subsidiaries, affiliates, partners, officers, directors, agents, contractors, licensors, service providers, subcontractors, suppliers, interns, and employees, from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms and Conditions or your use of our services.</p>",
+        "governing": "<p>These Terms and Conditions and any separate agreements whereby we provide you services shall be governed by and construed in accordance with the laws of Saudi Arabia, without regard to its conflict of law principles.</p><p>Any disputes relating to these Terms and Conditions shall be subject to the exclusive jurisdiction of the courts in Riyadh, Saudi Arabia.</p>",
+        "changes": "<p>We reserve the right, at our sole discretion, to modify or replace these Terms and Conditions at any time. We will provide notice of any significant changes by posting the new Terms and Conditions on this page and/or via email.</p><p>Your continued use of our services after any such changes constitutes your acceptance of the new Terms and Conditions. It is your responsibility to check these Terms and Conditions periodically for changes.</p>",
+        "contact": "<p>If you have any questions about these Terms and Conditions, please contact us at:</p><p>Email: <a href='mailto:legal@leap-pm.com' class='text-primary'>legal@leap-pm.com</a><br>Phone: +966 555 123 456<br>Address: LEAP PM Headquarters, Riyadh, Saudi Arabia</p>"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "How we collect, use, and protect your personal information.",
+      "lastUpdatedDate": "June 1, 2023",
+      "alert": {
+        "title": "Important Privacy Notice",
+        "description": "This policy describes how LEAP PM collects, uses, and shares your personal information. Please read it carefully."
+      },
+      "intro": "At LEAP PM, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile application, and other services (collectively, the 'Services'). Please read this privacy policy carefully. By using our Services, you consent to the practices described in this policy.",
+      "toc": {
+        "information": "Information We Collect",
+        "collection": "How We Collect Information",
+        "use": "How We Use Your Information",
+        "sharing": "Sharing Your Information",
+        "security": "Data Security",
+        "thirdParty": "Third-Party Websites",
+        "children": "Children's Privacy",
+        "international": "International Data Transfers",
+        "changes": "Changes to This Privacy Policy",
+        "contact": "Contact Us"
+      },
+      "sections": {
+        "information": "<p>We collect several types of information from and about users of our Services, including:</p><ul><li><strong>Personal Information:</strong> Information that can be used to identify you, such as your name, email address, telephone number, and postal address.</li><li><strong>Account Information:</strong> Information you provide when you register for an account, such as username and password.</li><li><strong>Transaction Information:</strong> Details about payments to and from you and other details of products or services you have purchased from us.</li><li><strong>Technical Information:</strong> Internet protocol (IP) address, browser type and version, operating system, device information, and other technology on the devices you use to access our Services.</li><li><strong>Usage Information:</strong> Information about how you use our Services, including your clickstream data, page views, and search queries.</li><li><strong>Preferences:</strong> Your preferences and settings for our Services.</li><li><strong>Communications:</strong> Records of your correspondence with us, including customer support interactions.</li></ul>",
+        "collection": "<p>We collect information from you when you:</p><ul><li>Register for an account or fill out forms on our Services</li><li>Subscribe to our newsletter or communications</li><li>Request information or assistance</li><li>Purchase products or services</li><li>Participate in surveys, contests, or promotions</li><li>Post content or comments</li><li>Use our Services</li></ul><p>We also collect information through cookies, web beacons, and other tracking technologies. For more information about our use of these technologies, please see our Cookie Policy section below.</p>",
+        "use": "<p>We use the information we collect to:</p><ul><li>Provide, maintain, and improve our Services</li><li>Process transactions and send related information</li><li>Respond to comments, questions, and requests</li><li>Send you technical notices, updates, security alerts, and support messages</li><li>Communicate with you about products, services, offers, promotions, and events</li><li>Monitor and analyze trends, usage, and activities in connection with our Services</li><li>Detect, investigate, and prevent fraudulent transactions and other illegal activities</li><li>Personalize and improve your experience on our Services</li><li>Carry out any other purpose described to you at the time the information was collected</li></ul>",
+        "sharing": "<p>We may share your information with:</p><ul><li><strong>Service Providers:</strong> Companies that perform services on our behalf, such as payment processing, data analysis, email delivery, hosting services, and customer service.</li><li><strong>Business Partners:</strong> Trusted third parties who help us provide our Services or who partner with us on joint offerings.</li><li><strong>Affiliates:</strong> Companies that LEAP PM controls, is controlled by, or is under common control with.</li><li><strong>Legal Requirements:</strong> When we believe disclosure is necessary to comply with a legal obligation, protect our rights, protect your safety or the safety of others, investigate fraud, or respond to a government request.</li><li><strong>Business Transfers:</strong> If LEAP PM is involved in a merger, acquisition, or sale of all or a portion of its assets, your information may be transferred as part of that transaction.</li></ul><p>We may also share aggregated or de-identified information, which cannot reasonably be used to identify you.</p>",
+        "security": "<p>We implement a variety of security measures to maintain the safety of your personal information, including:</p><ul><li>Using encryption to protect sensitive information transmitted online</li><li>Protecting your information offline by storing it in secure databases</li><li>Implementing access controls to limit access to your information</li><li>Regularly reviewing our information collection, storage, and processing practices</li></ul><p>However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>",
+        "thirdParty": "<p>Our Services may contain links to third-party websites and services. We are not responsible for the content or privacy practices of these third-party sites. We encourage you to read the privacy policies of any third-party sites you visit.</p><p>We may also use third-party services such as Google Analytics to help us understand how our users use our Services. These services may collect information about your use of our Services.</p>",
+        "children": "<p>Our Services are not intended for children under the age of 13, and we do not knowingly collect personal information from children under 13. If we learn we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information.</p><p>If you believe we might have any information from or about a child under 13, please contact us immediately.</p>",
+        "international": "<p>We primarily operate our Services from Saudi Arabia. If you access our Services from outside Saudi Arabia, please be aware that information we collect may be transferred to, processed, and stored in Saudi Arabia and other countries. By using our Services, you acknowledge and consent to the transfer and processing of your information in countries which may have different data protection rules than your country.</p><p>If you are located in the European Economic Area (EEA), we comply with applicable data protection laws when transferring your personal information outside of the EEA.</p>",
+        "changes": "<p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page and, if the changes are significant, we will provide a more prominent notice, such as by email.</p><p>You are advised to review this privacy policy periodically for any changes. Changes to this privacy policy are effective when they are posted on this page.</p>",
+        "contact": "<p>If you have any questions about this privacy policy or our privacy practices, please contact us at:</p><p>Email: <a href='mailto:privacy@leap-pm.com' class='text-primary'>privacy@leap-pm.com</a><br>Phone: +966 555 123 456<br>Address: LEAP PM Headquarters, Riyadh, Saudi Arabia</p>"
+      },
+      "dataRights": {
+        "title": "Your Data Protection Rights",
+        "rights": {
+          "access": {
+            "title": "Right to Access",
+            "description": "You have the right to request copies of your personal data."
+          },
+          "rectify": {
+            "title": "Right to Rectification",
+            "description": "You have the right to request that we correct inaccurate information about you."
+          },
+          "delete": {
+            "title": "Right to Erasure",
+            "description": "You have the right to request that we delete your personal data in certain circumstances."
+          },
+          "restrict": {
+            "title": "Right to Restriction",
+            "description": "You have the right to request that we restrict the processing of your data in certain circumstances."
+          },
+          "download": {
+            "title": "Right to Data Portability",
+            "description": "You have the right to request that we transfer the data we have collected to another organization or directly to you."
+          },
+          "object": {
+            "title": "Right to Object",
+            "description": "You have the right to object to our processing of your personal data in certain circumstances."
+          }
+        }
+      },
+      "cookiePolicy": {
+        "title": "Cookie Policy",
+        "required": "Required",
+        "optional": "Optional",
+        "manageText": "You can manage your cookie preferences at any time.",
+        "manageButton": "Manage Cookie Preferences",
+        "types": {
+          "essential": {
+            "title": "Essential Cookies",
+            "description": "These cookies are necessary for the website to function properly and cannot be disabled in our systems.",
+            "retention": "Session to 1 year"
+          },
+          "performance": {
+            "title": "Performance Cookies",
+            "description": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.",
+            "retention": "Up to 2 years"
+          },
+          "functional": {
+            "title": "Functional Cookies",
+            "description": "These cookies enable the website to provide enhanced functionality and personalization.",
+            "retention": "Up to 1 year"
+          }
+        }
+      }
+    }
+  },
+  "errors": {
+    "notFound": {
+      "title": "Page Not Found",
+      "heading": "Page Not Found",
+      "description": "The page you are looking for does not exist or has been removed.",
+      "message": "Sorry, we couldn't find the page you're looking for.",
+      "trySearching": "Try searching for something else:",
+      "search": "Search..."
+    },
+    "maintenance": {
+      "title": "Site Under Maintenance",
+      "heading": "We'll Be Back Soon",
+      "description": "Our website is currently undergoing scheduled maintenance.",
+      "message": "We apologize for the inconvenience. Please check back shortly."
+    },
+    "error": {
+      "title": "Something Went Wrong",
+      "heading": "Oops! Something went wrong.",
+      "description": "An error occurred while processing your request.",
+      "message": "We're sorry, but something went wrong. Please try again later."
+    },
+    "backToHome": "Back to Home",
+    "contactSupport": "Contact Support",
+    "search": "Search...",
+    "detailPages": {
+      "project": {
+        "title": "Project Not Found",
+        "heading": "Project Not Found",
+        "description": "The project you are looking for does not exist or has been removed.",
+        "message": "Sorry, we couldn't find the project you're looking for."
+      },
+      "blog": {
+        "title": "Blog Post Not Found",
+        "heading": "Blog Post Not Found",
+        "description": "The blog post you are looking for does not exist or has been removed.",
+        "message": "Sorry, we couldn't find the blog post you're looking for."
+      },
+      "job": {
+        "title": "Job Not Found",
+        "heading": "Job Not Found",
+        "description": "The job posting you are looking for does not exist or has been removed.",
+        "message": "Sorry, we couldn't find the job posting you're looking for."
+      },
+      "service": {
+        "title": "Service Not Found",
+        "heading": "Service Not Found",
+        "description": "The service you are looking for does not exist or has been removed.",
+        "message": "Sorry, we couldn't find the service you're looking for."
+      }
+    },
+    "loading": "Error Loading Content",
+    "tryAgain": "Please try again later.",
+    "retry": "Retry",
+    "details": "Error Details",
+    "refreshPage": "Refresh the page",
+    "checkConnection": "Check your internet connection",
+    "tryAgainLater": "Try again later",
+    "contactSupportIfPersists": "Contact support if the problem persists",
+    "goBack": "Go Back",
+    "tryThe": "Try the following:"
   }
 } 

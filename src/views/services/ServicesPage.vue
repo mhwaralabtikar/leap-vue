@@ -24,21 +24,21 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div class="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mb-4">
-              What We Do
+              {{ $t('services.whatWeDo') }}
             </div>
-            <h2 class="text-3xl md:text-xl font-bold mb-6">Tailored Solutions for Project Success</h2>
+            <h2 class="text-3xl md:text-xl font-bold mb-6">{{ $t('services.tailoredSolutions') }}</h2>
             <p class="text-foreground/70 mb-6">
-              LEAP PM provides a comprehensive suite of project management services to ensure successful project delivery. Our team of experienced professionals brings expertise across various industries and project types.
+              {{ $t('services.introDescription1') }}
             </p>
             <p class="text-foreground/70 mb-6">
-              We pride ourselves on tailoring our approach to the specific needs of each client, ensuring solutions that align with your business objectives and project requirements.
+              {{ $t('services.introDescription2') }}
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <RouterLink to="/contact" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors">
-                Get Started
+                {{ $t('services.getStarted') }}
               </RouterLink>
               <RouterLink to="/about" class="inline-flex items-center justify-center px-6 py-3 border border-border rounded-md hover:bg-accent transition-colors">
-                Learn More About Us
+                {{ $t('services.learnMoreAboutUs') }}
               </RouterLink>
             </div>
           </div>
@@ -78,13 +78,22 @@ import { RouterLink } from 'vue-router'
 import BackToTop from '@/components/BackToTop.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import { useServicesStore } from '@/stores/services'
-
-// Initialize services store
+import { useI18n } from 'vue-i18n'
+import { onMounted } from 'vue'
+// Initialize services store and i18n
 const servicesStore = useServicesStore()
+const { t } = useI18n()
+
+// Ensure all services are loaded
+onMounted(() => {
+  if (servicesStore.services.length === 0) {
+    servicesStore.fetchServices()
+  }
+})
 
 // Breadcrumbs
 const breadcrumbs = [
-  { name: 'Home', path: '/' },
-  { name: 'Services', path: '/services' }
+  { name: t('common.home'), path: '/' },
+  { name: t('services.title'), path: '/services' }
 ]
 </script> 

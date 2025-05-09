@@ -110,11 +110,11 @@
         <h2 class="text-3xl font-bold mb-12 text-center">Related Services</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div v-for="(service, index) in relatedServices" :key="index">
-            <ServiceCard 
-              :service="service"
-            />
-          </div>
+          <ServiceCard 
+            v-for="(service, index) in relatedServices" 
+            :key="index"
+            :service="service"
+          />
         </div>
       </div>
     </section>
@@ -122,111 +122,48 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { RouterLink } from 'vue-router'
 import { ChevronRightIcon } from 'lucide-vue-next'
 import ServiceCard from '@/components/ServiceCard.vue'
+import { useServicesStore } from '@/stores/services'
 
 const route = useRoute()
-const serviceId = computed(() => route.params.id?.toString() || '')
+const router = useRouter()
+const servicesStore = useServicesStore()
 
-// Mock data for all services
-const allServices = [
-  {
-    id: 'project-controls',
-    title: 'Project Controls',
-    description: 'Comprehensive oversight and coordination of project scope, schedule, and cost to ensure successful delivery.',
-    imageUrl: 'https://picsum.photos/id/250/600/400',
-    features: [
-      'Project performance measurement and reporting',
-      'Schedule and cost integration',
-      'Variance analysis and corrective action planning',
-      'Progress monitoring and forecasting',
-      'Change management and documentation'
-    ]
-  },
-  {
-    id: 'cost-management',
-    title: 'Cost Management',
-    description: 'Budgeting, forecasting, and controlling costs with ERP integration and variance analysis for financial efficiency.',
-    imageUrl: 'https://picsum.photos/id/20/600/400',
-    features: [
-      'Budget development and baseline establishment',
-      'Cost estimation and forecasting',
-      'Earned value management',
-      'Financial reporting and analytics',
-      'Value engineering and cost optimization'
-    ]
-  },
-  {
-    id: 'claims-management',
-    title: 'Claims Management',
-    description: 'Preparation and analysis of contractual claims, delay assessments, and cost-related disputes following global standards.',
-    imageUrl: 'https://picsum.photos/id/48/600/400',
-    features: [
-      'Claim identification and prevention',
-      'Delay analysis and extension of time claims',
-      'Cost impact assessment',
-      'Contract and documentation review',
-      'Expert witness and dispute resolution support'
-    ]
-  },
-  {
-    id: '4d-bim-modeling',
-    title: '4D-BIM Modeling',
-    description: 'Integration of 3D models with schedules to visualize project timelines, optimize logistics, and enhance planning.',
-    imageUrl: 'https://picsum.photos/id/364/600/400',
-    features: [
-      '3D model integration with project schedules',
-      'Construction sequence visualization',
-      'Clash detection and resolution',
-      'Site logistics planning',
-      'What-if scenario analysis'
-    ]
-  },
-  {
-    id: 'planning-schedule-management',
-    title: 'Planning & Schedule Management',
-    description: 'Development and monitoring of project schedules, productivity analysis, and resource optimization for timely delivery.',
-    imageUrl: 'https://picsum.photos/id/259/600/400',
-    features: [
-      'Master schedule development',
-      'Critical path analysis',
-      'Resource leveling and optimization',
-      'Schedule risk assessment',
-      'Recovery planning and acceleration strategies'
-    ]
-  },
-  {
-    id: 'training-development',
-    title: 'Training & Development Services',
-    description: 'Industry-focused training programs offering online, live, and offline sessions to enhance project management skills.',
-    imageUrl: 'https://picsum.photos/id/180/600/400',
-    features: [
-      'Customized training curriculum development',
-      'Project management professional (PMP) exam preparation',
-      'Software-specific training (Primavera P6, MS Project, etc.)',
-      'Project controls workshops',
-      'Leadership and soft skills development'
-    ]
+// Get current service based on route params
+const serviceId = computed(() => route.params.id as string)
+const service = computed(() => {
+  const found = servicesStore.getServiceById(serviceId.value)
+  return found || null // Return null if service not found
+})
+
+// Redirect to not found page if service doesn't exist
+onMounted(() => {
+  if (!service.value) {
+    router.replace('/services/not-found')
   }
-]
+})
+
+// Get all services from the store
+const allServices = computed(() => servicesStore.services)
 
 // Find the current service
 const currentService = computed(() => 
-  allServices.find(service => service.id === serviceId.value) || allServices[0]
+  servicesStore.getServiceById(serviceId.value) || allServices.value[0]
 )
 
 // Service details
 const serviceTitle = computed(() => currentService.value.title)
 const serviceDescription = computed(() => currentService.value.description)
-const serviceImageUrl = computed(() => currentService.value.imageUrl)
-const serviceFeatures = computed(() => currentService.value.features)
+const serviceImageUrl = computed(() => currentService.value.imageUrl || `https://picsum.photos/id/${250}/600/400`)
+const serviceFeatures = computed(() => currentService.value.features || [])
 
 // Related services - 3 random services excluding current one
 const relatedServices = computed(() => {
-  const otherServices = allServices.filter(s => s.id !== serviceId.value)
+  const otherServices = allServices.value.filter(s => s.id !== serviceId.value)
   return otherServices.sort(() => 0.5 - Math.random()).slice(0, 3).map(service => ({
     ...service,
     link: `/services/${service.id}`

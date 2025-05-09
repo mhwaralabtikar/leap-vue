@@ -124,6 +124,38 @@ export const useServicesStore = defineStore('services', () => {
     }
   ])
 
+  // Loading state
+  const isLoading = ref(false)
+  const error = ref<string | null>(null)
+
+  // Fetch services from API or use local data
+  async function fetchServices() {
+    isLoading.value = true
+    error.value = null
+    
+    try {
+      // In a real app, you would fetch from an API
+      // const response = await fetch('https://test.leap-pm.com/api/services')
+      // const data = await response.json()
+      // services.value = data
+      
+      // For now, we'll simulate a delay and use our pre-defined services
+      await new Promise(resolve => setTimeout(resolve, 800))
+      
+      // Add random images if not present
+      services.value = services.value.map(service => ({
+        ...service,
+        imageUrl: service.imageUrl || `https://picsum.photos/id/${180 + Math.floor(Math.random() * 20)}/600/400`
+      }))
+      
+      isLoading.value = false
+    } catch (err) {
+      console.error('Error fetching services:', err)
+      error.value = 'Failed to load services data'
+      isLoading.value = false
+    }
+  }
+
   // Get service by ID
   function getServiceById(id: string) {
     return services.value.find(service => service.id === id)
@@ -131,6 +163,9 @@ export const useServicesStore = defineStore('services', () => {
 
   return {
     services,
-    getServiceById
+    isLoading,
+    error,
+    getServiceById,
+    fetchServices
   }
 }) 

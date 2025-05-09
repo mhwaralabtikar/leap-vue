@@ -1,6 +1,6 @@
 <template>
   <div class="w-full">
-    <form @submit="onSubmit" class="space-y-8">
+    <Form @submit="onSubmit" class="space-y-8">
       <!-- Error Alert Message -->
       <transition
         enter-active-class="transition duration-500 ease-out"
@@ -76,193 +76,169 @@
       <!-- Form Fields Grid -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Name Field -->
-        <div class="space-y-2">
-          <label for="name" class="block text-sm font-medium mb-1 flex items-center gap-1">
-            {{ $t('contact.name') }} <span class="text-primary">*</span>
-          </label>
-          <div class="relative group">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
-              <UserIcon class="h-5 w-5" />
+        <FormField name="name" v-slot="{ field }">
+          <FormItem>
+            <FormLabel class="flex items-center gap-1">
+              {{ $t('contact.name') }} <span class="text-primary">*</span>
+            </FormLabel>
+            <div class="relative group">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
+                <UserIcon class="h-5 w-5" />
+              </div>
+              <FormControl>
+                <Input 
+                  ref="nameInputRef"
+                  :id="field.name"
+                  :name="field.name"
+                  :value="form.name"
+                  @input="(e) => validateOnChange('name', e.target.value)"
+                  :placeholder="$t('contact.name')"
+                  class="ps-12 py-3 rounded-xl"
+                  :class="{ 
+                    'border-destructive focus:ring-destructive/40': errors.name, 
+                    'border-green-500/50 focus:ring-green-500/40': form.name && !errors.name,
+                    'pe-10': form.name
+                  }"
+                  :disabled="isSubmitting"
+                />
+              </FormControl>
+              <div v-if="form.name" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
+                <CheckIcon v-if="!errors.name" class="h-5 w-5 text-green-500" />
+                <XCircleIcon v-else class="h-5 w-5 text-destructive" />
+              </div>
             </div>
-            <input
-              id="name"
-              v-model="form.name"
-              :placeholder="$t('contact.name')"
-              class="w-full ps-12 py-3 border border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              :class="{ 
-                'border-destructive focus:ring-destructive/40': errors.name, 
-                'border-green-500/50 focus:ring-green-500/40': form.name && !errors.name,
-                'pe-10': form.name
-              }"
-              :disabled="isSubmitting"
-              @blur="validateOnBlur('name')"
-            />
-            <div v-if="form.name" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
-              <CheckIcon v-if="!errors.name" class="h-5 w-5 text-green-500" />
-              <XCircleIcon v-else class="h-5 w-5 text-destructive" />
-            </div>
-            
-            <transition
-              enter-active-class="transition duration-300 ease-out"
-              enter-from-class="transform -translate-y-2 opacity-0"
-              enter-to-class="transform translate-y-0 opacity-100"
-              leave-active-class="transition duration-200 ease-in"
-              leave-from-class="transform translate-y-0 opacity-100"
-              leave-to-class="transform -translate-y-2 opacity-0"
-            >
-              <p v-if="errors.name" class="text-sm text-destructive mt-1">
-                {{ errors.name }}
-              </p>
-              <p v-else-if="form.name" class="text-sm text-green-600 dark:text-green-400 mt-1">
-                {{ $t('contact.valid') }}
-              </p>
-            </transition>
-          </div>
-        </div>
+            <FormDescription>
+              {{ $t('contact.nameDescription') || 'Enter your full name as it appears on official documents' }}
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
         <!-- Email Field -->
-        <div class="space-y-2">
-          <label for="email" class="block text-sm font-medium mb-1 flex items-center gap-1">
-            {{ $t('contact.email') }} <span class="text-primary">*</span>
-          </label>
-          <div class="relative group">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
-              <MailIcon class="h-5 w-5" />
+        <FormField name="email" v-slot="{ field }">
+          <FormItem>
+            <FormLabel class="flex items-center gap-1">
+              {{ $t('contact.email') }} <span class="text-primary">*</span>
+            </FormLabel>
+            <div class="relative group">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
+                <MailIcon class="h-5 w-5" />
+              </div>
+              <FormControl>
+                <Input 
+                  :id="field.name"
+                  :name="field.name"
+                  :value="form.email"
+                  @input="(e) => validateOnChange('email', e.target.value)"
+                  type="email"
+                  :placeholder="$t('contact.email')"
+                  class="ps-12 py-3 rounded-xl"
+                  :class="{ 
+                    'border-destructive focus:ring-destructive/40': errors.email, 
+                    'border-green-500/50 focus:ring-green-500/40': form.email && !errors.email,
+                    'pe-10': form.email
+                  }"
+                  :disabled="isSubmitting"
+                />
+              </FormControl>
+              <div v-if="form.email" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
+                <CheckIcon v-if="!errors.email" class="h-5 w-5 text-green-500" />
+                <XCircleIcon v-else class="h-5 w-5 text-destructive" />
+              </div>
             </div>
-            <input
-              id="email"
-              type="email"
-              v-model="form.email"
-              :placeholder="$t('contact.email')"
-              class="w-full ps-12 py-3 border border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              :class="{ 
-                'border-destructive focus:ring-destructive/40': errors.email, 
-                'border-green-500/50 focus:ring-green-500/40': form.email && !errors.email,
-                'pe-10': form.email
-              }"
-              :disabled="isSubmitting"
-              @blur="validateOnBlur('email')"
-            />
-            <div v-if="form.email" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
-              <CheckIcon v-if="!errors.email" class="h-5 w-5 text-green-500" />
-              <XCircleIcon v-else class="h-5 w-5 text-destructive" />
-            </div>
-
-            <transition
-              enter-active-class="transition duration-300 ease-out"
-              enter-from-class="transform -translate-y-2 opacity-0"
-              enter-to-class="transform translate-y-0 opacity-100"
-              leave-active-class="transition duration-200 ease-in"
-              leave-from-class="transform translate-y-0 opacity-100"
-              leave-to-class="transform -translate-y-2 opacity-0"
-            >
-              <p v-if="errors.email" class="text-sm text-destructive mt-1">
-                {{ errors.email }}
-              </p>
-              <p v-else-if="form.email" class="text-sm text-green-600 dark:text-green-400 mt-1">
-                {{ $t('contact.valid') }}
-              </p>
-            </transition>
-          </div>
-        </div>
+            <FormDescription>
+              {{ $t('contact.emailDescription') || 'We\'ll use this email to respond to your inquiry' }}
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
         <!-- Subject Field -->
-        <div class="space-y-2">
-          <label for="subject" class="block text-sm font-medium mb-1 flex items-center gap-1">
-            {{ $t('contact.subject') }} <span class="text-primary">*</span>
-          </label>
-          <div class="relative group">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
-              <ClipboardListIcon class="h-5 w-5" />
+        <FormField name="subject" v-slot="{ field }">
+          <FormItem>
+            <FormLabel class="flex items-center gap-1">
+              {{ $t('contact.subject') }} <span class="text-primary">*</span>
+            </FormLabel>
+            <div class="relative group">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
+                <ClipboardListIcon class="h-5 w-5" />
+              </div>
+              <FormControl>
+                <Input 
+                  :id="field.name"
+                  :name="field.name"
+                  :value="form.subject"
+                  @input="(e) => validateOnChange('subject', e.target.value)"
+                  :placeholder="$t('contact.subject')"
+                  class="ps-12 py-3 rounded-xl"
+                  :class="{ 
+                    'border-destructive focus:ring-destructive/40': errors.subject, 
+                    'border-green-500/50 focus:ring-green-500/40': form.subject && !errors.subject,
+                    'pe-10': form.subject
+                  }"
+                  :disabled="isSubmitting"
+                />
+              </FormControl>
+              <div v-if="form.subject" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
+                <CheckIcon v-if="!errors.subject" class="h-5 w-5 text-green-500" />
+                <XCircleIcon v-else class="h-5 w-5 text-destructive" />
+              </div>
             </div>
-            <input
-              id="subject"
-              v-model="form.subject"
-              :placeholder="$t('contact.subject')"
-              class="w-full ps-12 py-3 border border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              :class="{ 
-                'border-destructive focus:ring-destructive/40': errors.subject, 
-                'border-green-500/50 focus:ring-green-500/40': form.subject && !errors.subject,
-                'pe-10': form.subject
-              }"
-              :disabled="isSubmitting"
-              @blur="validateOnBlur('subject')"
-            />
-            <div v-if="form.subject" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
-              <CheckIcon v-if="!errors.subject" class="h-5 w-5 text-green-500" />
-              <XCircleIcon v-else class="h-5 w-5 text-destructive" />
-            </div>
-
-            <transition
-              enter-active-class="transition duration-300 ease-out"
-              enter-from-class="transform -translate-y-2 opacity-0"
-              enter-to-class="transform translate-y-0 opacity-100"
-              leave-active-class="transition duration-200 ease-in"
-              leave-from-class="transform translate-y-0 opacity-100"
-              leave-to-class="transform -translate-y-2 opacity-0"
-            >
-              <p v-if="errors.subject" class="text-sm text-destructive mt-1">
-                {{ errors.subject }}
-              </p>
-              <p v-else-if="form.subject" class="text-sm text-green-600 dark:text-green-400 mt-1">
-                {{ $t('contact.valid') }}
-              </p>
-            </transition>
-          </div>
-        </div>
+            <FormDescription>
+              {{ $t('contact.subjectDescription') || 'A brief summary of your inquiry' }}
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
 
         <!-- Phone Field -->
-        <div class="space-y-2">
-          <label for="phone" class="block text-sm font-medium mb-1">
-            {{ $t('contact.phone') }}
-          </label>
-          <div class="relative group">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
-              <PhoneIcon class="h-5 w-5" />
+        <FormField name="phone" v-slot="{ field }">
+          <FormItem>
+            <FormLabel>
+              {{ $t('contact.phone') }}
+            </FormLabel>
+            <div class="relative group">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none text-muted-foreground/70 dark:text-muted-foreground/60 transition-all group-focus-within:text-primary">
+                <PhoneIcon class="h-5 w-5" />
+              </div>
+              <FormControl>
+                <Input 
+                  :id="field.name"
+                  :name="field.name" 
+                  :value="form.phone"
+                  @input="(e) => validateOnChange('phone', e.target.value)"
+                  type="tel"
+                  :placeholder="$t('contact.phone')"
+                  class="ps-12 py-3 rounded-xl"
+                  :class="{ 
+                    'border-destructive focus:ring-destructive/40': errors.phone, 
+                    'border-green-500/50 focus:ring-green-500/40': form.phone && !errors.phone,
+                    'pe-10': form.phone
+                  }"
+                  :disabled="isSubmitting"
+                />
+              </FormControl>
+              <div v-if="form.phone" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
+                <CheckIcon v-if="!errors.phone" class="h-5 w-5 text-green-500" />
+                <XCircleIcon v-else class="h-5 w-5 text-destructive" />
+              </div>
             </div>
-            <input
-              id="phone"
-              type="tel"
-              v-model="form.phone"
-              :placeholder="$t('contact.phone')"
-              class="w-full ps-12 py-3 border border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-              :class="{ 
-                'border-destructive focus:ring-destructive/40': errors.phone, 
-                'border-green-500/50 focus:ring-green-500/40': form.phone && !errors.phone,
-                'pe-10': form.phone
-              }"
-              :disabled="isSubmitting"
-              @blur="validateOnBlur('phone')"
-            />
-            <div v-if="form.phone" class="absolute inset-y-0 end-0 flex items-center pe-4 pointer-events-none">
-              <CheckIcon v-if="!errors.phone" class="h-5 w-5 text-green-500" />
-              <XCircleIcon v-else class="h-5 w-5 text-destructive" />
-            </div>
-            
-            <transition
-              enter-active-class="transition duration-300 ease-out"
-              enter-from-class="transform -translate-y-2 opacity-0"
-              enter-to-class="transform translate-y-0 opacity-100"
-              leave-active-class="transition duration-200 ease-in"
-              leave-from-class="transform translate-y-0 opacity-100"
-              leave-to-class="transform -translate-y-2 opacity-0"
-            >
-              <p v-if="errors.phone" class="text-sm text-destructive mt-1">
-                {{ errors.phone }}
-              </p>
-              <p v-else-if="form.phone" class="text-sm text-green-600 dark:text-green-400 mt-1">
-                {{ $t('contact.valid') }}
-              </p>
-            </transition>
-          </div>
-        </div>
+            <FormDescription>
+              {{ $t('contact.phoneDescription') || 'Optional. Include country code for international numbers' }}
+            </FormDescription>
+            <FormMessage />
+          </FormItem>
+        </FormField>
       </div>
 
       <!-- Inquiry Type Selection -->
       <div class="mt-6 space-y-3">
-        <label class="block text-sm font-medium mb-1">
+        <FormLabel class="block text-sm font-medium mb-1">
           {{ $t('contact.inquiryType') }}
-        </label>
+        </FormLabel>
+        <FormDescription class="mt-0 mb-2">
+          {{ $t('contact.inquiryTypeDescription') || 'Select the category that best matches your inquiry' }}
+        </FormDescription>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div 
             v-for="type in inquiryTypes" 
@@ -299,84 +275,69 @@
       </div>
 
       <!-- Message Field -->
-      <div class="mt-6 space-y-2">
-        <label for="message" class="block text-sm font-medium mb-1 flex items-center gap-1">
-          {{ $t('contact.message') }} <span class="text-primary">*</span>
-        </label>
-        <div class="relative">
-          <textarea
-            id="message"
-            v-model="form.message"
-            :placeholder="$t('contact.messagePlaceholder')"
-            rows="5"
-            class="w-full px-5 py-4 border border-border/50 dark:border-border/30 bg-card/50 dark:bg-card/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/40 transition-all"
-            :class="{ 
-              'border-destructive focus:ring-destructive/40': errors.message, 
-              'border-green-500/50 focus:ring-green-500/40': form.message && !errors.message && form.message.length >= 10
-            }"
-            :disabled="isSubmitting"
-            @blur="validateOnBlur('message')"
-          ></textarea>
-          
-          <!-- Character counter bubble that appears when typing -->
-          <div v-if="form.message" 
-            class="absolute bottom-3 end-3 px-2 py-1 bg-muted dark:bg-muted/80 text-muted-foreground text-xs rounded-md transition-all duration-300"
-            :class="{ 'text-destructive': form.message.length > 480, 'text-primary': form.message.length > 400 && form.message.length <= 480 }">
-            {{ form.message.length }}/500
+      <FormField name="message" v-slot="{ field }">
+        <FormItem>
+          <FormLabel class="flex items-center gap-1">
+            {{ $t('contact.message') }} <span class="text-primary">*</span>
+          </FormLabel>
+          <div class="relative">
+            <FormControl>
+              <Textarea
+                :id="field.name"
+                :name="field.name"
+                :value="form.message"
+                @input="(e) => validateOnChange('message', e.target.value)"
+                :placeholder="$t('contact.messagePlaceholder')"
+                rows="5"
+                class="w-full px-5 py-4 rounded-xl"
+                :class="{ 
+                  'border-destructive focus:ring-destructive/40': errors.message, 
+                  'border-green-500/50 focus:ring-green-500/40': form.message && !errors.message && form.message.length >= 10
+                }"
+                :disabled="isSubmitting"
+              />
+            </FormControl>
+            
+            <!-- Character counter bubble that appears when typing -->
+            <div v-if="form.message" 
+              class="absolute bottom-3 end-3 px-2 py-1 bg-muted dark:bg-muted/80 text-muted-foreground text-xs rounded-md transition-all duration-300"
+              :class="{ 'text-destructive': form.message.length > 480, 'text-primary': form.message.length > 400 && form.message.length <= 480 }">
+              {{ form.message.length }}/500
+            </div>
           </div>
-        </div>
-        
-        <transition
-          enter-active-class="transition duration-300 ease-out"
-          enter-from-class="transform -translate-y-2 opacity-0"
-          enter-to-class="transform translate-y-0 opacity-100"
-          leave-active-class="transition duration-200 ease-in"
-          leave-from-class="transform translate-y-0 opacity-100"
-          leave-to-class="transform -translate-y-2 opacity-0"
-        >
-          <p v-if="errors.message" class="text-sm text-destructive mt-1">
-            {{ errors.message }}
-          </p>
-          <p v-else-if="form.message && form.message.length >= 10" class="text-sm text-green-600 dark:text-green-400 mt-1">
-            {{ $t('contact.valid') }}
-          </p>
-        </transition>
-      </div>
+          <FormDescription>
+            {{ $t('contact.messageDescription') || 'Provide as much detail as possible about your inquiry (min 10, max 500 characters)' }}
+          </FormDescription>
+          <FormMessage />
+        </FormItem>
+      </FormField>
       
       <!-- Privacy Policy Agreement -->
-      <div class="mt-6 space-y-2">
-        <div class="flex items-start">
-          <div class="flex items-center h-5">
-            <input
-              id="privacy"
-              v-model="form.privacyAgreed"
-              type="checkbox"
+      <FormField name="privacyAgreed" v-slot="{ field }">
+        <FormItem class="flex flex-row items-start space-x-3 space-y-0 mt-6">
+          <FormControl>
+            <Checkbox
+              :id="field.name"
+              :name="field.name"
+              :checked="form.privacyAgreed"
+              @update:checked="(checked) => validateOnChange('privacyAgreed', checked)"
               :disabled="isSubmitting"
-              class="w-5 h-5 text-primary bg-card/50 dark:bg-card/30 border-border/50 dark:border-border/30 rounded focus:ring-primary/40"
               :class="{ 'border-destructive': errors.privacyAgreed }"
-              @blur="validateOnBlur('privacyAgreed')"
             />
+          </FormControl>
+          <div class="space-y-1 leading-none">
+            <FormLabel class="text-sm text-muted-foreground dark:text-muted-foreground/80" v-html="$t('contact.privacyPolicy')"></FormLabel>
+            <FormDescription class="text-xs">
+              {{ $t('contact.privacyDescription') || 'Required to process your submission' }}
+            </FormDescription>
+            <FormMessage />
           </div>
-          <label for="privacy" class="ms-3 text-sm text-muted-foreground dark:text-muted-foreground/80" v-html="$t('contact.privacyPolicy')"></label>
-        </div>
-        
-        <transition
-          enter-active-class="transition duration-300 ease-out"
-          enter-from-class="transform -translate-y-2 opacity-0"
-          enter-to-class="transform translate-y-0 opacity-100"
-          leave-active-class="transition duration-200 ease-in"
-          leave-from-class="transform translate-y-0 opacity-100"
-          leave-to-class="transform -translate-y-2 opacity-0"
-        >
-          <p v-if="errors.privacyAgreed" class="text-sm text-destructive mt-1">
-            {{ errors.privacyAgreed }}
-          </p>
-        </transition>
-      </div>
+        </FormItem>
+      </FormField>
 
       <!-- Submit Button -->
       <div class="mt-8">
-        <button
+        <Button
           type="submit"
           class="w-full relative overflow-hidden group bg-primary hover:bg-primary/90 text-primary-foreground py-4 px-6 rounded-xl transition-all text-base font-medium flex items-center justify-center shadow-md hover:shadow-lg dark:shadow-primary/20"
           :disabled="isSubmitting"
@@ -387,7 +348,7 @@
           <!-- Button content -->
           <span class="relative flex items-center justify-center">
             <span v-if="isSubmitting" class="flex items-center">
-              <LoaderIcon class="animate-spin h-5 w-5 me-2" />
+              <LoaderIcon class="animate-spin -ml-1 mr-2 h-5 w-5 text-white" />
               {{ $t('contact.submitting') }}
             </span>
             <span v-else class="flex items-center">
@@ -395,7 +356,7 @@
               {{ $t('contact.submit') }}
             </span>
           </span>
-        </button>
+        </Button>
       </div>
 
       <!-- Enhanced Success Message with Animation -->
@@ -440,12 +401,12 @@
           </div>
         </div>
       </transition>
-    </form>
+    </Form>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, nextTick, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useThemeStore } from '@/stores/theme'
 import { useContactStore } from '@/stores/contact'
@@ -471,6 +432,11 @@ import {
   AlertCircleIcon,
   BellIcon
 } from 'lucide-vue-next'
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { Checkbox } from '@/components/ui/checkbox'
+import { Button } from '@/components/ui/button'
 
 // Composables
 const { t } = useI18n()
@@ -483,6 +449,7 @@ const isSubmitting = ref(false)
 const isSuccess = ref(false)
 const showErrorAlert = ref(false)
 const formErrorMessage = ref('')
+const nameInputRef = ref<HTMLInputElement | null>(null)
 
 // Inquiry types
 const inquiryTypes = [
@@ -516,7 +483,7 @@ const validationSchema = toTypedSchema(
 )
 
 // Initialize form
-const { handleSubmit, errors, validate, validateField } = useForm({
+const { handleSubmit, errors, validate, validateField, setFieldValue } = useForm({
   validationSchema
 })
 
@@ -530,14 +497,42 @@ const form = reactive({
   privacyAgreed: false
 })
 
+// Auto-focus first field on mount
+onMounted(() => {
+  setTimeout(() => {
+    // Check if nameInputRef.value is an Element with a focus method
+    if (nameInputRef.value && typeof nameInputRef.value.focus === 'function') {
+      nameInputRef.value.focus()
+    }
+  }, 100)
+})
+
 // Validate on blur
 async function validateOnBlur(field: 'message' | 'name' | 'email' | 'subject' | 'phone' | 'inquiryType' | 'privacyAgreed') {
   await validateField(field)
 }
 
+// Validate on change with optimized performance using nextTick
+async function validateOnChange(field: 'message' | 'name' | 'email' | 'subject' | 'phone' | 'inquiryType' | 'privacyAgreed', value: any) {
+  form[field] = value
+  
+  // Set field value for validation
+  setFieldValue(field, value)
+  
+  // Use nextTick to prevent UI blocking during validation
+  nextTick(async () => {
+    await validateField(field)
+  })
+}
+
 // Set inquiry type
 function selectInquiryType(type: string) {
   form.inquiryType = type
+  
+  // Validate in the background
+  nextTick(async () => {
+    await validateField('inquiryType', type)
+  })
 }
 
 // Form submission handler
@@ -550,7 +545,7 @@ const onSubmit = handleSubmit(async (values) => {
     const result = await validate()
     if (!result.valid) {
       showErrorAlert.value = true
-      formErrorMessage.value = 'Please correct the errors in the form before submitting.'
+      formErrorMessage.value = t('contact.errors.formErrors') || 'Please correct the errors in the form before submitting.'
       return
     }
     
@@ -585,10 +580,18 @@ const onSubmit = handleSubmit(async (values) => {
     // Show success message
     isSuccess.value = true
     
-    // Hide success message after 5 seconds
+    // Scroll to top of form to show success message
+    setTimeout(() => {
+      window.scrollTo({
+        top: window.scrollY - 300,
+        behavior: 'smooth'
+      })
+    }, 100)
+    
+    // Hide success message after 6 seconds
     setTimeout(() => {
       isSuccess.value = false
-    }, 5000)
+    }, 6000)
     
   } catch (error) {
     console.error('Error submitting form:', error)

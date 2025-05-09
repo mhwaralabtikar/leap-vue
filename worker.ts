@@ -15,7 +15,9 @@ router.get('*', async (req) => {
   return response
 })
 
-// Default export of the worker function
-addEventListener('fetch', (event) => {
-  event.respondWith(router.handle(event.request))
-})
+// Export default object with fetch handler
+export default {
+  fetch: (request: Request, env: any, ctx: any) => {
+    return router.handle(request)
+  }
+}

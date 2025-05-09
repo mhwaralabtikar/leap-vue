@@ -11,6 +11,8 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
@@ -59,6 +61,8 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: #0056b3;
+  --primary-light: #2980b9;
+  --primary-dark: #003b7a;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
   --secondary-foreground: #1e293b;
@@ -88,38 +92,61 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: #2980b9;
+  /* Main background and text colors */
+  --background: #121820;
+  --foreground: #f8fafc;
+  
+  /* Card colors */
+  --card: #1a2330;
+  --card-foreground: #f8fafc;
+  
+  /* Popover colors */
+  --popover: #1a2330;
+  --popover-foreground: #f8fafc;
+  
+  /* Primary colors - using Leap PM blue palette */
+  --primary: #0056b3;
+  --primary-light: #2980b9;
+  --primary-dark: #003b7a;
   --primary-foreground: #ffffff;
-  --secondary: #334155;
+  
+  /* Secondary colors */
+  --secondary: #2a364a;
   --secondary-foreground: #f8fafc;
+  
+  /* Muted colors for subtle elements */
   --muted: #1e293b;
-  --muted-foreground: #94a3b8;
-  --accent: #334155;
+  --muted-foreground: #a3b3c9;
+  
+  /* Accent colors for highlights */
+  --accent: #0d1829;
   --accent-foreground: #f8fafc;
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: #334155;
-  --input: #334155;
-  --ring: #94a3b8;
-  --chart-1: #2980b9;
-  --chart-2: #5dade2;
-  --chart-3: #aed6f1;
-  --chart-4: #d6eaf8;
+  
+  /* Destructive colors for warnings/errors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  
+  /* Border, input, and ring colors */
+  --border: #2a364a;
+  --input: #2a364a;
+  --ring: #0056b3;
+  
+  /* Chart colors */
+  --chart-1: #0056b3;
+  --chart-2: #2980b9;
+  --chart-3: #5dade2;
+  --chart-4: #aed6f1;
   --chart-5: #003b7a;
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  
+  /* Sidebar colors */
+  --sidebar: #0d1829;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #0056b3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1a2330;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #2a364a;
+  --sidebar-ring: #0056b3;
 }
 
 @layer base {
@@ -429,4 +456,267 @@
     linear-gradient(to right, currentColor 1px, transparent 1px),
     linear-gradient(to bottom, currentColor 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+
+/* Animation keyframes */
+@keyframes shine {
+  from {
+    opacity: 0;
+    transform: translateX(-100%) skewX(-20deg);
+  }
+  60% {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%) skewX(-20deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes progress {
+  from {
+    right: 100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+@keyframes clipText {
+  from {
+    clip-path: inset(0 var(--clip-end) 0 var(--clip-start));
+  }
+  to {
+    clip-path: inset(0 0% 0 0%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* RTL versions of animations */
+[dir="rtl"] @keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+[dir="rtl"] @keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Utility classes */
+.animate-shine {
+  animation: shine 1.2s ease-in-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.progress-animation {
+  animation: progress linear;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.clip-text-animation {
+  animation: clipText 1s ease-out forwards;
+}
+
+/* Section animations */
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  opacity: 0;
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Slide-in animations */
+.slide-in-animation {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 1s forwards;
+}
+
+.slide-in-animation.delay-150 {
+  animation-delay: 150ms;
+}
+
+.slide-in-animation.delay-300 {
+  animation-delay: 300ms;
+}
+
+.slide-in-animation.delay-500 {
+  animation-delay: 500ms;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Background gradient mesh */
+.bg-gradient-mesh {
+  background-image: 
+    radial-gradient(circle at 10% 30%, rgba(var(--primary-rgb), 0.5) 0%, transparent 25%), 
+    radial-gradient(circle at 90% 70%, rgba(var(--primary-rgb), 0.3) 0%, transparent 25%);
+  background-size: 100% 100%;
+}
+
+/* RTL specific fixes */
+[dir="rtl"] .slide-in-animation.origin-left {
+  transform-origin: right;
+}
+
+[dir="rtl"] .slide-in-animation.origin-right {
+  transform-origin: left;
+}
+
+/* Active slide animations */
+.active-slide .slide-in-animation {
+  animation-play-state: running;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stat-card {
+    @apply py-3 px-1;
+  }
+}
+
+.leaflet-container{
+  z-index: 1;
 }

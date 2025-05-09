@@ -30,15 +30,25 @@
             </div>
             
             <div class="flex flex-wrap gap-4">
-              <a href="tel:+966551234567" class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors shadow-lg">
+              <Button 
+                as="a" 
+                href="tel:+966551234567" 
+                variant="default" 
+                class="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-white/90 transition-colors shadow-lg"
+              >
                 <PhoneIcon class="h-5 w-5" />
                 <span>{{ $t('contact.callNow') }}</span>
-              </a>
+              </Button>
               
-              <a href="#contact-form" class="inline-flex items-center gap-2 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors">
+              <Button 
+                as="a" 
+                href="#contact-form" 
+                variant="outline" 
+                class="inline-flex items-center gap-2 bg-white/10 text-white border border-white/20 px-6 py-3 rounded-lg font-medium hover:bg-white/20 transition-colors"
+              >
                 <ArrowDownIcon class="h-5 w-5" />
                 <span>{{ $t('contact.scrollToForm') }}</span>
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -165,14 +175,15 @@
             class="border border-border rounded-lg overflow-hidden transition-all duration-200 bg-card"
             :class="{'shadow-md': openFaq === index}"
           >
-            <button 
+            <Button 
               @click="toggleFaq(index)"
               class="w-full flex justify-between items-center p-4 md:p-6 text-start font-medium"
+              variant="ghost"
             >
               <span>{{ $t(`contact.faqs.${faq.key}.question`) }}</span>
               <ChevronDownIcon class="h-5 w-5 text-muted-foreground transition-transform duration-200"
                 :class="{'rotate-180': openFaq === index}" />
-            </button>
+            </Button>
             <div 
               class="overflow-hidden transition-all duration-200"
               :class="openFaq === index ? 'max-h-96 px-4 md:px-6 pb-4 md:pb-6' : 'max-h-0'"
@@ -219,6 +230,7 @@ import {
 } from 'lucide-vue-next'
 import ContactForm from '@/components/ContactForm.vue'
 import OpenStreetMap from '@/components/OpenStreetMap.vue'
+import { Button } from '@/components/ui/button'
 
 const { t } = useI18n()
 const themeStore = useThemeStore()

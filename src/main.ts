@@ -1,24 +1,37 @@
-import { createApp } from 'vue'
+import { createApp as createVueApp } from 'vue'
 import { createPinia } from 'pinia'
 import App from './App.vue'
-import router from './router'
+import { createRouter } from './router'
 import i18n from './i18n'
-import { useThemeStore } from './stores/theme'
 import visibilityPlugin from './plugins/visibility'
+import directives from './directives'
+import type { RouterHistory } from 'vue-router'
 
 import './style.css'
 
-// Create app instance
-const app = createApp(App)
+// Create app function that can be used by both client and server
+export function createApp(history: RouterHistory) {
+  // Create Pinia store
+  const pinia = createPinia()
+  
+  // Create router with the provided history
+  const router = createRouter(history)
+  
+  // Create app instance
+  const app = createVueApp(App)
 
-// Register plugins
-app.use(createPinia())
-app.use(router)
-app.use(i18n)
-app.use(visibilityPlugin)
+  // Register plugins
+  app.use(pinia)
+  app.use(router)
+  app.use(i18n)
+  app.use(visibilityPlugin)
+  app.use(directives)
 
-// Initialize theme store
-useThemeStore()
+  return { app, router, pinia }
+}
 
-// Mount app
-app.mount('#app')
+// Browser-only code
+if (typeof window !== 'undefined') {
+  // Import client entry when in browser
+  import('./entry-client')
+}

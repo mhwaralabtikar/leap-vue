@@ -22,7 +22,7 @@ const forwarded = useForwardPropsEmits(props, emits)
       <DialogTitle>{{ title }}</DialogTitle>
       <DialogDescription>{{ description }}</DialogDescription>
     </DialogHeader>
-    <DialogContent class="overflow-hidden p-0 ">
+    <DialogContent class="overflow-hidden p-0 rtl:text-right">
       <Command>
         <slot />
       </Command>

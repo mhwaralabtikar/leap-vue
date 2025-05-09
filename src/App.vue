@@ -2,16 +2,21 @@
 import { RouterView } from 'vue-router'
 import { useThemeStore } from './stores/theme'
 import { useAppStore } from './stores/app'
+import { useLocaleStore } from './stores/locale'
 import { useI18n } from 'vue-i18n'
-import { onMounted, watch, computed } from 'vue'
+import { onMounted, watch, computed, ref } from 'vue'
 import NavBar from './components/NavBar.vue'
 import Footer from './components/Footer.vue'
 import BackToTop from './components/BackToTop.vue'
 import PageProgress from './components/PageProgress.vue'
+import LoadingScreen from './components/LoadingScreen.vue'
+import { Toaster } from '@/components/ui/sonner'
 
 const themeStore = useThemeStore()
 const appStore = useAppStore()
+const localeStore = useLocaleStore()
 const { locale } = useI18n()
+const loadingCompleted = ref(false)
 
 // Sync i18n locale with theme store
 watch(() => locale.value, (newLocale) => {
@@ -20,23 +25,31 @@ watch(() => locale.value, (newLocale) => {
   }
 })
 
+// Handle loading complete event
+function handleLoadingComplete() {
+  loadingCompleted.value = true
+}
+
 // Ensure theme and locale are properly initialized
 onMounted(() => {
-  document.documentElement.classList.toggle('rtl', themeStore.locale === 'ar')
+  localeStore.initLocale()
   
   // Initialize app state
   appStore.initApp()
 })
 
 // Detect RTL mode for proper styling
-const isRtl = computed(() => themeStore.locale === 'ar')
+const isRtl = computed(() => localeStore.isRTL)
 </script>
 
 <template>
-  <!-- Page loader -->
-  <div v-if="appStore.isLoading" class="fixed inset-0 bg-background z-[100] flex items-center justify-center">
-    <div class="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full"></div>
-  </div>
+  <!-- Main page loader -->
+  <LoadingScreen 
+    :visible="appStore.isLoading && !loadingCompleted" 
+    :progress="appStore.loadingProgress"
+    :message="appStore.loadingMessage || $t('loading.appTitle') || 'Loading LEAP PM'"
+    @progress-complete="handleLoadingComplete"
+  />
   
   <div 
     class="flex flex-col min-h-screen bg-background text-foreground transition-colors duration-300" 
@@ -50,7 +63,7 @@ const isRtl = computed(() => themeStore.locale === 'ar')
         <Transition 
           name="page" 
           mode="out-in" 
-          @before-leave="appStore.startLoading" 
+          @before-leave="appStore.startLoading($t('loading.changingPage') || 'Changing page...')" 
           @after-enter="appStore.stopLoading"
         >
           <component :is="Component" />
@@ -61,6 +74,7 @@ const isRtl = computed(() => themeStore.locale === 'ar')
     <Footer />
 
     <BackToTop />
+    <Toaster />
   </div>
 </template>
 

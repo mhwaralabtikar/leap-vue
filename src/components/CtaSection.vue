@@ -36,7 +36,7 @@ const { t } = useI18n()
           <!-- Right side: Image -->
           <div class="relative h-72 md:h-auto">
             <img 
-              src="https://picsum.photos/id/325/800/600" 
+              src="https://picsum.photos/id/305/800/600" 
               alt="Get Started" 
               class="absolute inset-0 w-full h-full object-cover"
             />

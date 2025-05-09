@@ -5,7 +5,7 @@
         <!-- Company Info -->
         <div>
           <div class="flex items-center mb-6">
-            <img src="/logo.svg" alt="Leap PM" class="h-10 w-auto filter brightness-0 invert" />
+            <img :src="logoPath" alt="Leap PM" class="h-10 w-auto filter brightness-0 invert" />
             <span :class="{'ms-2': !isRtl, 'me-2': isRtl, 'text-xl font-bold': true}">LEAP PM</span>
           </div>
           <p class="text-white/80 mb-6">
@@ -126,6 +126,14 @@
           </RouterLink>
           <RouterLink to="/contact" class="text-sm text-white/70 hover:text-white transition-colors">
             {{ $t('footer.contactUs') }}
+          </RouterLink>
+          
+          <RouterLink to="/terms" class="text-sm text-white/70 hover:text-white transition-colors">
+            {{ $t('footer.terms') }}
+          </RouterLink>
+          
+          <RouterLink to="/privacy" class="text-sm text-white/70 hover:text-white transition-colors">
+            {{ $t('footer.privacy') }}
           </RouterLink>
         </div>
       </div>

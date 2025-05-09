@@ -80,7 +80,7 @@
             <GlobeIcon class="h-5 w-5 absolute transition-opacity group-hover:rotate-12" :class="{'opacity-0': isChangingLocale, 'opacity-100': !isChangingLocale}" />
             <LoaderIcon class="h-5 w-5 absolute animate-spin transition-opacity" :class="{'opacity-0': !isChangingLocale, 'opacity-100': isChangingLocale}" />
           </div>
-          <span class="font-medium text-sm ms-1 min-w-[20px]">{{ themeStore.locale === 'en' ? 'AR' : 'EN' }}</span>
+          <span class="font-medium text-sm ms-1 min-w-[20px]">{{ localeStore.locale === 'en' ? 'AR' : 'EN' }}</span>
           <span class="absolute bottom-0 left-0 h-0.5 w-0 bg-primary transition-all duration-300 group-hover:w-full"></span>
         </button>
 
@@ -189,7 +189,7 @@
             
             <div class="flex items-center">
               <span class="h-6 w-10 rounded-full bg-background/80 dark:bg-background flex items-center justify-center border border-border/30 dark:border-border/20 shadow-inner text-xs font-medium">
-                {{ themeStore.locale === 'en' ? 'AR' : 'EN' }}
+                {{ localeStore.locale === 'en' ? 'AR' : 'EN' }}
               </span>
             </div>
             
@@ -247,8 +247,10 @@ import {
 import { useUIStore } from '@/stores/ui'
 import { useI18n } from 'vue-i18n'
 import { useThemeStore } from '@/stores/theme'
+import { useLocaleStore } from '@/stores/locale'
 
 const themeStore = useThemeStore()
+const localeStore = useLocaleStore()
 const uiStore = useUIStore()
 const { t } = useI18n()
 const route = useRoute()
@@ -264,11 +266,11 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { key: 'home', path: '/' },
-  { key: 'about', path: '/about' },
   { key: 'services', path: '/services' },
   { key: 'projects', path: '/projects' },
   { key: 'blog', path: '/blog' },
-  { key: 'jobs', path: '/jobs' }
+  { key: 'jobs', path: '/jobs' },
+  { key: 'about', path: '/about' },
 ] as NavItem[];
 
 // Function to get the appropriate icon for each navigation item
@@ -346,7 +348,7 @@ function toggleLocale() {
   
   // Add a small delay to show the loading indicator
   setTimeout(() => {
-    themeStore.setLocale(themeStore.locale === 'en' ? 'ar' : 'en')
+    localeStore.toggleLocale()
     
     // Close mobile menu after language change
     if (uiStore.isMobileMenuOpen) {
