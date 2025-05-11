@@ -95,11 +95,16 @@ export const useAboutStore = defineStore('about', () => {
   ])
 
   const partners = ref([
-    { id: 1, name: 'Partner 1', logo: 'https://placehold.co/200x80?text=Partner+1' },
-    { id: 2, name: 'Partner 2', logo: 'https://placehold.co/200x80?text=Partner+2' },
-    { id: 3, name: 'Partner 3', logo: 'https://placehold.co/200x80?text=Partner+3' },
-    { id: 4, name: 'Partner 4', logo: 'https://placehold.co/200x80?text=Partner+4' },
-    { id: 5, name: 'Partner 5', logo: 'https://placehold.co/200x80?text=Partner+5' }
+    { id: 1, name: 'Partner 1', logo: '/partners/c1.png' },
+    { id: 2, name: 'Partner 2', logo: '/partners/c2.png' },
+    { id: 3, name: 'Partner 3', logo: '/partners/c3.png' },
+    { id: 4, name: 'Partner 4', logo: '/partners/c4.png' },
+    { id: 5, name: 'Partner 5', logo: '/partners/c5.png' },
+    { id: 6, name: 'Partner 6', logo: '/partners/c6.png' },
+    { id: 7, name: 'Partner 7', logo: '/partners/c7.png' },
+    { id: 8, name: 'Partner 8', logo: '/partners/c8.png' },
+    { id: 9, name: 'Partner 9', logo: '/partners/c9.png' },
+    { id: 10, name: 'Partner 10', logo: '/partners/c10.png' }
   ])
 
 

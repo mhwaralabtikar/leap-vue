@@ -62,14 +62,14 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
           <div class="space-y-6" v-animate="'slide-in-left'">
             <Badge variant="outline" class="bg-primary/10 text-primary border-primary/20">
-              {{ $t('about.ourStory') }}
+              Who We Are
             </Badge>
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">{{ $t('about.ourStoryTitle') }}</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Who We Are</h2>
             <p class="text-lg text-foreground/80 leading-relaxed">
-              {{ $t('about.ourStoryContent1') }}
+              LEAP is a dynamic and multidisciplinary project management firm dedicated to delivering excellence in project management services, as well as training and development programs in the project management field. Our expertise lies in applying industry-best project management techniques and methodologies to ensure efficiency and success in every project we undertake.
             </p>
             <p class="text-lg text-foreground/80 leading-relaxed">
-              {{ $t('about.ourStoryContent2') }}
+              At LEAP, we go beyond conventional project management by integrating practical learning experiences into our training programs. We empower professionals by equipping them with the essential skills, knowledge, and tools required for career growth in the project management industry.
             </p>
             
             <!-- Company timeline -->
@@ -169,35 +169,47 @@
               >
                 <div class="flex items-center justify-center gap-2">
                   <component :is="tabIcons[index]" class="w-4 h-4" />
-                  {{ $t(`about.tabs.${tab}`) }}
+                  {{ tab === 'company' ? 'Who We Are' : tab === 'mission' ? 'Our Mission & Vision' : 'Our Core Values' }}
                 </div>
               </TabsTrigger>
             </TabsList>
             
             <!-- Company Tab Content -->
             <TabsContent value="company" class="mt-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
-              <p class="text-lg mb-6 leading-relaxed text-foreground/80">{{ $t('about.companyContent') }}</p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-6" v-animate="'scale-in'">
+              <p class="text-lg mb-6 leading-relaxed text-foreground/80">
+                LEAP is a dynamic and multidisciplinary project management firm dedicated to delivering excellence in project management services, as well as training and development programs in the project management field. Our expertise lies in applying industry-best project management techniques and methodologies to ensure efficiency and success in every project we undertake.
+              </p>
+              <p class="text-lg text-foreground/80 leading-relaxed">
+                At LEAP, we go beyond conventional project management by integrating practical learning experiences into our training programs. We empower professionals by equipping them with the essential skills, knowledge, and tools required for career growth in the project management industry.
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6" v-animate="'scale-in'">
                 <Card class="hover:shadow-md transition-all duration-300 hover:border-primary/30">
                   <CardHeader>
                     <CardTitle class="flex items-center gap-2 text-primary">
                       <TrophyIcon class="w-5 h-5" />
-                      {{ $t('about.expertise') }}
+                      Our Vision
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p class="text-foreground/80">{{ $t('about.expertiseContent') }}</p>
+                    <p class="text-foreground/80">
+                      To be a leading firm recognized for delivering innovative and high-impact project management services and professional training. Our vision is to set a benchmark in the project management field by integrating global knowledge and best practices. We are committed to delivering projects efficiently and enhancing the competencies of project management professionals worldwide.
+                    </p>
                   </CardContent>
                 </Card>
                 <Card class="hover:shadow-md transition-all duration-300 hover:border-primary/30">
                   <CardHeader>
                     <CardTitle class="flex items-center gap-2 text-primary">
                       <MapIcon class="w-5 h-5" />
-                      {{ $t('about.global') }}
+                      Our Mission
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p class="text-foreground/80">{{ $t('about.globalContent') }}</p>
+                    <p class="text-foreground/80">
+                      Our mission is to provide unique, value-driven project management solutions and professional training services that contribute to the advancement of the project management community. We achieve this through a highly skilled team that possesses a wealth of industry experience, professional expertise, and academic certifications from top project management institutes and universities.
+                    </p>
+                    <p class="text-foreground/80 mt-2">
+                      At LEAP, we are committed to fostering an environment of continuous learning and professional growth to stay at the forefront of the evolving project management landscape. This ensures our continued success and allows us to maintain long-term trust with our clients.
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -211,10 +223,15 @@
                     <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-4">
                       <TargetIcon class="w-7 h-7 text-primary" />
                     </div>
-                    <CardTitle>{{ $t('about.missionTitle') }}</CardTitle>
+                    <CardTitle>Our Mission</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p class="text-lg text-foreground/80 leading-relaxed">{{ $t('about.missionContent') }}</p>
+                    <p class="text-lg text-foreground/80 leading-relaxed">
+                      Our mission is to provide unique, value-driven project management solutions and professional training services that contribute to the advancement of the project management community. We achieve this through a highly skilled team that possesses a wealth of industry experience, professional expertise, and academic certifications from top project management institutes and universities.
+                    </p>
+                    <p class="text-lg text-foreground/80 leading-relaxed mt-2">
+                      At LEAP, we are committed to fostering an environment of continuous learning and professional growth to stay at the forefront of the evolving project management landscape. This ensures our continued success and allows us to maintain long-term trust with our clients.
+                    </p>
                   </CardContent>
                 </Card>
                 <Card class="hover:shadow-md transition-all duration-300">
@@ -222,10 +239,12 @@
                     <div class="w-14 h-14 bg-primary/20 rounded-full flex items-center justify-center mb-4">
                       <EyeIcon class="w-7 h-7 text-primary" />
                     </div>
-                    <CardTitle>{{ $t('about.visionTitle') }}</CardTitle>
+                    <CardTitle>Our Vision</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p class="text-lg text-foreground/80 leading-relaxed">{{ $t('about.visionContent') }}</p>
+                    <p class="text-lg text-foreground/80 leading-relaxed">
+                      To be a leading firm recognized for delivering innovative and high-impact project management services and professional training. Our vision is to set a benchmark in the project management field by integrating global knowledge and best practices. We are committed to delivering projects efficiently and enhancing the competencies of project management professionals worldwide.
+                    </p>
                   </CardContent>
                 </Card>
               </div>
@@ -233,20 +252,71 @@
             
             <!-- Values Tab Content -->
             <TabsContent value="values" class="mt-6 animate-in fade-in-0 slide-in-from-bottom-4 duration-500">
-              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" v-animate="'scale-in'">
-                <Card 
-                  v-for="(value, index) in values" 
-                  :key="`value-${index}`"
-                  class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group"
-                >
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center" v-animate="'scale-in'">
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
                   <CardHeader>
                     <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                      <component :is="valueIconMap[value.icon]" class="w-8 h-8 text-primary" />
+                      <ShieldIcon class="w-8 h-8 text-primary" />
                     </div>
-                    <CardTitle class="mt-4 text-primary">{{ $t(`about.values.${value.value.toLowerCase()}`) }}</CardTitle>
+                    <CardTitle class="mt-4 text-primary">Transparency</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p class="text-foreground/70">{{ $t(`about.values.${value.value.toLowerCase()}Content`) }}</p>
+                    <p class="text-foreground/70">Clear, timely, and open communication with our team and clients.</p>
+                  </CardContent>
+                </Card>
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
+                  <CardHeader>
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <AwardIcon class="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle class="mt-4 text-primary">Commitment</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p class="text-foreground/70">A deep sense of responsibility toward achieving our goals, mission, and vision.</p>
+                  </CardContent>
+                </Card>
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
+                  <CardHeader>
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <UsersIcon class="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle class="mt-4 text-primary">Collaboration</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p class="text-foreground/70">Strong teamwork and synergy between clients and team members to drive project success.</p>
+                  </CardContent>
+                </Card>
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
+                  <CardHeader>
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <LightbulbIcon class="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle class="mt-4 text-primary">Continuous Learning</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p class="text-foreground/70">A commitment to staying ahead through knowledge-sharing, innovation, and skill development.</p>
+                  </CardContent>
+                </Card>
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
+                  <CardHeader>
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <TrophyIcon class="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle class="mt-4 text-primary">Quality Excellence</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p class="text-foreground/70">Delivering high-quality services and continuously improving our methodologies.</p>
+                  </CardContent>
+                </Card>
+                <Card class="text-center hover:shadow-md transition-all duration-300 hover:-translate-y-2 hover:border-primary/20 group mx-auto">
+                  <CardHeader>
+                    <div class="w-16 h-16 mx-auto bg-primary/10 rounded-full flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                      <ShieldIcon class="w-8 h-8 text-primary" />
+                    </div>
+                    <CardTitle class="mt-4 text-primary">Integrity</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p class="text-foreground/70">Upholding honesty, ethical practices, and accountability in all business dealings.</p>
                   </CardContent>
                 </Card>
               </div>
