@@ -14,13 +14,13 @@
       </Button>
     </div>
 
-    <!-- Hero Section with Page Header -->
+    <!-- Hero Section with Page Header /covers/about-2.jpg -->
     <PageHeader
       :title="$t('about.title')"
       :subtitle="$t('about.description')"
       :badge="$t('about.aboutUs')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="/covers/about-2.jpg"
+      backgroundImage="https://picsum.photos/id/1076/1920/1080"
       v-animate="'fade-in'"
     >
       <!-- Animated background shapes -->

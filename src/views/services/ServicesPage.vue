@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- Page header -->
+    <!-- Page header /covers/Services.jpg -->
     <PageHeader
       :title="$t('services.title')"
       :subtitle="$t('services.subtitle')"
       :badge="$t('services.whatWeDo')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="/covers/Services.jpg"
+      backgroundImage="https://picsum.photos/id/238/1920/1080"
     >
       <template #actions>
         <div class="flex flex-wrap gap-4 justify-center">
