@@ -129,7 +129,7 @@ onMounted(() => {
             stroke-width="2" 
             stroke-linecap="round" 
             stroke-linejoin="round" 
-            class="ms-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-2"
+            class="ms-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-2 arrow-right"
           >
             <path d="M5 12h14"></path>
             <path d="m12 5 7 7-7 7"></path>

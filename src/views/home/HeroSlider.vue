@@ -59,9 +59,7 @@
               ]"
             >
               <div class="container mx-auto px-4 h-full flex items-center">
-                <div 
-                  :class="[isRtl ? 'ms-auto' : 'me-auto', 'max-w-2xl pt-16 md:pt-0']"
-                >
+                <div class="me-auto max-w-2xl pt-16 md:pt-0">
                   <!-- Animated badge with particle effect -->
                   <div 
                     class="inline-flex items-center bg-primary/20 backdrop-blur-sm border border-primary/30 dark:border-primary/40 px-4 py-1.5 rounded-full text-white mb-6 slide-in-animation"
@@ -76,7 +74,7 @@
                   <!-- Headline with dynamic text animation -->
                   <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white drop-shadow-lg slide-in-animation">
                     <span 
-                      class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary-light to-primary dark:from-primary-light dark:via-primary dark:to-primary-light inline-block"
+                      class="text-transparent text-sm px-2 py-1 rounded-full bg-clip-text bg-gradient-to-r from-primary via-primary-light to-primary dark:from-primary-light dark:via-primary dark:to-primary-light inline-block"
                     >{{ $t(slide.titleHighlight) }}</span>
                     <span 
                       class="block mt-2 clip-text-animation" 
@@ -233,19 +231,19 @@ const slides = [
     titleHighlight: 'hero.servicesHighlight',
     title: 'hero.servicesTitle',
     subtitle: 'hero.servicesSubtitle',
-    image: 'https://picsum.photos/id/1048/1920/1080' // Modern office with professionals
+    image: '/covers/projects.jpg' // Modern office with professionals
   },
   {
     titleHighlight: 'hero.projectsHighlight',
     title: 'hero.projectsTitle',
     subtitle: 'hero.projectsSubtitle',
-    image: 'https://picsum.photos/id/642/1920/1080' // Construction project
+    image: '/covers/cover-1.jpg' // Construction project
   },
   {
     titleHighlight: 'hero.innovationHighlight',
     title: 'hero.innovationTitle',
     subtitle: 'hero.innovationSubtitle',
-    image: 'https://picsum.photos/id/175/1920/1080' // Urban landscape
+    image: '/covers/cover-2.jpg' // Urban landscape
   }
 ]
 

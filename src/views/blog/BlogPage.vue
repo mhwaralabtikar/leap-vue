@@ -6,7 +6,7 @@
       :subtitle="$t('blog.subtitle')"
       :badge="$t('blog.insights')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="https://picsum.photos/id/160/1920/1080"
+      backgroundImage="/covers/Blog.jpg"
     >
       <template #actions>
         <div class="flex flex-wrap gap-4 justify-center">

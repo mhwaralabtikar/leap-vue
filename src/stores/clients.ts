@@ -11,16 +11,16 @@ export interface Client {
 export const useClientsStore = defineStore('clients', () => {
   // Client data
   const clients = ref<Client[]>([
-    { id: 1, name: 'Royal Commission for Riyadh City', logo: 'https://picsum.photos/id/0/200/100', industry: 'Government' },
-    { id: 2, name: 'Saudi Aramco', logo: 'https://picsum.photos/id/1/200/100', industry: 'Energy' },
-    { id: 3, name: 'NEOM', logo: 'https://picsum.photos/id/2/200/100', industry: 'Development' },
-    { id: 4, name: 'Public Investment Fund', logo: 'https://picsum.photos/id/3/200/100', industry: 'Finance' },
-    { id: 5, name: 'Ministry of Transport', logo: 'https://picsum.photos/id/4/200/100', industry: 'Government' },
-    { id: 6, name: 'Red Sea Development Company', logo: 'https://picsum.photos/id/5/200/100', industry: 'Development' },
-    { id: 7, name: 'SABIC', logo: 'https://picsum.photos/id/6/200/100', industry: 'Manufacturing' },
-    { id: 8, name: 'Amaala', logo: 'https://picsum.photos/id/7/200/100', industry: 'Development' },
-    { id: 9, name: 'Qiddiya Investment Company', logo: 'https://picsum.photos/id/8/200/100', industry: 'Entertainment' },
-    { id: 10, name: 'Diriyah Gate Development Authority', logo: 'https://picsum.photos/id/9/200/100', industry: 'Heritage' }
+    { id: 1, name: 'Royal Commission for Riyadh City', logo: '/partners/c1.png', industry: 'Government' },
+    { id: 2, name: 'Saudi Aramco', logo: '/partners/c2.png', industry: 'Energy' },
+    { id: 3, name: 'NEOM', logo: '/partners/c3.png', industry: 'Development' },
+    { id: 4, name: 'Public Investment Fund', logo: '/partners/c4.png', industry: 'Finance' },
+    { id: 5, name: 'Ministry of Transport', logo: '/partners/c5.png', industry: 'Government' },
+    { id: 6, name: 'Red Sea Development Company', logo: '/partners/c6.png', industry: 'Development' },
+    { id: 7, name: 'SABIC', logo: '/partners/c7.png', industry: 'Manufacturing' },
+    { id: 8, name: 'Amaala', logo: '/partners/c8.png', industry: 'Development' },
+    { id: 9, name: 'Qiddiya Investment Company', logo: '/partners/c9.png', industry: 'Entertainment' },
+    { id: 10, name: 'Diriyah Gate Development Authority', logo: '/partners/c10.png', industry: 'Heritage' }
   ])
 
   // Stats data

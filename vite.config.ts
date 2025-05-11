@@ -2,7 +2,6 @@ import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import path from 'node:path'
-import { cloudflare } from "@cloudflare/vite-plugin";
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
@@ -11,7 +10,6 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     vueDevTools(),
-    cloudflare(),
   ],
   resolve: {
     alias: {

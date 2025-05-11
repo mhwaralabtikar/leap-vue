@@ -66,7 +66,7 @@
                 stroke-width="2" 
                 stroke-linecap="round" 
                 stroke-linejoin="round" 
-                class="ms-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+                class="ms-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 arrow-right"
               >
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
@@ -77,7 +77,7 @@
           <div class="relative" v-animate="'slide-in-right'">
             <!-- Main image with frame -->
             <div class="relative rounded-2xl overflow-hidden shadow-2xl dark:shadow-xl">
-              <img :src="aboutStore.aboutImage || 'https://picsum.photos/id/1/600/500'" alt="About LEAP PM" class="w-full h-96 object-cover" />
+              <img :src="aboutStore.aboutImage || '/covers/about.png'" alt="About LEAP PM" class="w-full h-96 object-cover" />
             </div>
             
             <!-- Floating experience card -->

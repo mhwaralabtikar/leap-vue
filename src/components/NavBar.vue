@@ -10,15 +10,17 @@
     <div class="container mx-auto px-4 flex items-center justify-between">
       <!-- Logo -->
       <RouterLink to="/" class="flex items-center group relative">
-        <div 
+        <!-- <div 
           class="relative overflow-hidden rounded-md bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center transition-all duration-300"
           :class="scrolled ? 'h-9 w-9' : 'h-10 w-10'"
         >
-          <img src="/logo.svg" alt="Leap PM" class="h-auto w-auto transition-transform duration-300 group-hover:scale-110" :class="scrolled ? 'max-h-7' : 'max-h-8'" />
+          <img src="/logo/logo.png" alt="Leap PM" class="h-auto w-auto transition-transform duration-300 group-hover:scale-110" :class="scrolled ? 'max-h-7' : 'max-h-8'" />
           <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           <span class="absolute -bottom-1 -right-1 w-3 h-3 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 scale-0 group-hover:scale-100"></span>
-        </div>
-        <div class="ms-2.5 flex flex-col">
+        </div> -->
+        <img src="/logo/logo.png" alt="Leap PM" class="h-auto w-auto transition-transform duration-300 group-hover:scale-110" :class="scrolled ? 'max-h-7' : 'max-h-8'" />
+
+        <!-- <div class="ms-2.5 flex flex-col">
           <span 
             class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/80 transition-all duration-300"
             :class="scrolled ? 'text-lg' : 'text-xl'"
@@ -32,7 +34,7 @@
             Project Management
           </span>
         </div>
-        <div class="absolute inset-0 rounded-md ring-0 ring-primary/20 opacity-0 group-hover:opacity-100 group-hover:ring-2 transition-all duration-300"></div>
+        <div class="absolute inset-0 rounded-md ring-0 ring-primary/20 opacity-0 group-hover:opacity-100 group-hover:ring-2 transition-all duration-300"></div> -->
       </RouterLink>
 
       <!-- Desktop Navigation -->

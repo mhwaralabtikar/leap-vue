@@ -15,10 +15,10 @@
             <span class="text-sm font-medium bg-primary/90 px-3 py-1 rounded-full">{{ project.category }}</span>
             <RouterLink 
               :to="`/projects/${project.id}`" 
-              class="inline-flex items-center gap-1 text-white hover:text-primary-foreground bg-white/20 backdrop-blur-sm px-3 py-1 rounded-md"
+              class="inline-flex items-center gap-1 text-white hover:text-primary-foreground bg-white/20 backdrop-blur-sm px-3 py-1 gap-2 flex rounded-md"
             >
-              View Project 
-              <ChevronRightIcon class="h-4 w-4" />
+              <span>View Project</span> 
+              <ChevronRightIcon class="h-4 w-4 arrow-right" />
             </RouterLink>
           </div>
         </div>

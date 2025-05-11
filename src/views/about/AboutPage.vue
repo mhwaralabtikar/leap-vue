@@ -20,7 +20,7 @@
       :subtitle="$t('about.description')"
       :badge="$t('about.aboutUs')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="https://picsum.photos/id/1076/1920/1080"
+      backgroundImage="/covers/about-2.jpg"
       v-animate="'fade-in'"
     >
       <!-- Animated background shapes -->
@@ -111,7 +111,7 @@
           <div class="relative" v-animate="'slide-in-right'">
             <!-- Main image with layered design -->
             <div class="rounded-2xl overflow-hidden shadow-2xl relative group border border-border/40">
-              <img src="https://picsum.photos/id/1071/800/600" alt="Company history" class="object-cover w-full h-full aspect-[4/3] transition-transform duration-700 group-hover:scale-105" />
+              <img src="/covers/about-2.jpg" alt="Company history" class="object-cover w-full h-full aspect-[4/3] transition-transform duration-700 group-hover:scale-105" />
               
               <!-- Gradient overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>

@@ -14,7 +14,25 @@
     "title": "Innovative Project Management Solutions",
     "subtitle": "Streamline your projects with our comprehensive management platform and expert services",
     "cta": "Get Started",
-    "learnMore": "Learn More"
+    "learnMore": "Learn More",
+    "projectsSubtitle": "Get to know our projects",
+    "projectsTitle": "Get to know our projects",
+    "projectsHighlight": "Projects",
+    "tagline": "Why Choose Us",
+    "servicesHighlight": "Services",
+    "servicesTitle": "Get to know our services",
+    "servicesSubtitle": "We offer a wide range of specialized services designed to optimize your project delivery and ensure success at every stage.",
+    "aboutHighlight": "About",
+    "aboutTitle": "Get to know us",
+    "aboutSubtitle": "We are a team of experienced professionals who are dedicated to providing the best project management solutions to our clients.",
+    "blogHighlight": "Blog",
+    "blogTitle": "Get to know our blog",
+    "innovationHighlight": "Innovation",
+    "innovationTitle": "Get to know our innovation",
+    "innovationSubtitle": "We are a team of experienced professionals who are dedicated to providing the best project management solutions to our clients.",
+    "contactHighlight": "Contact",
+    "contactTitle": "Get to know our contact",
+    "contactSubtitle": "We are a team of experienced professionals who are dedicated to providing the best project management solutions to our clients."
   },
   "loading": {
     "appTitle": "Loading LEAP PM",
@@ -231,7 +249,8 @@
     "projects": "Completed Projects",
     "clients": "Happy Clients",
     "yearsExperience": "Years Experience",
-    "countries": "Countries Served"
+    "countries": "Countries Served",
+    "clientSatisfaction": "Client Satisfaction"
   },
   "testimonials": {
     "testimonials": "Testimonials",
@@ -438,6 +457,8 @@
     "infrastructure": "Infrastructure",
     "tourism": "Tourism",
     "housing": "Housing",
+    "viewDetails": "View Details",
+    "viewAll": "View All Projects",
     "saudiArabia": "Saudi Arabia"
   },
   "jobs": {

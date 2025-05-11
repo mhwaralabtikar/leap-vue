@@ -17,6 +17,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'project-controls',
       title: 'Project Controls',
+      imageUrl: '/services/projects-managment.jpg',
       description: 'Comprehensive oversight and management of project scope, schedule, and cost to ensure successful project delivery.',
       icon: 'layers',
       features: [
@@ -29,6 +30,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'cost-management',
       title: 'Cost Management',
+      imageUrl: '/services/cost.jpg',
       description: 'Detailed budgeting, forecasting, and cost control with ERP integration and variance analysis.',
       icon: 'dollar-sign',
       features: [
@@ -41,6 +43,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'scheduling',
       title: 'Scheduling',
+      imageUrl: '/services/scheduling.jpg',
       description: 'Development and management of project schedules using advanced planning techniques and software.',
       icon: 'calendar',
       features: [
@@ -53,6 +56,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'document-control',
       title: 'Document Control',
+      imageUrl: '/services/document-control.jpg',
       description: 'Complete document management solutions for tracking, storage, and retrieval of project documentation.',
       icon: 'file-text',
       features: [
@@ -65,6 +69,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: '4d-bim-modeling',
       title: '4D BIM Modeling',
+      imageUrl: '/services/4d-bim-modeling.jpg',
       description: 'Integration of 3D models with project schedules to visualize project timelines and optimize planning.',
       icon: 'bar-chart-2',
       features: [
@@ -77,6 +82,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'claims-management',
       title: 'Claims Management',
+      imageUrl: '/services/claims-management.jpg',
       description: 'Expert preparation and analysis of time and cost-related claims following international standards.',
       icon: 'alert-triangle',
       features: [
@@ -89,6 +95,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'risk-management',
       title: 'Risk Management',
+      imageUrl: '/services/risk-management.jpg',
       description: 'Identification, assessment, and mitigation of project risks to ensure successful project outcomes.',
       icon: 'shield',
       features: [
@@ -101,6 +108,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'project-management',
       title: 'Project Management',
+      imageUrl: '/services/project.jpg',
       description: 'End-to-end project management services to drive project success from initiation to closeout.',
       icon: 'briefcase',
       features: [
@@ -113,6 +121,7 @@ export const useServicesStore = defineStore('services', () => {
     {
       id: 'training-development',
       title: 'Training & Development',
+      imageUrl: '/services/training-development.jpg',
       description: 'Specialized training programs in project management methodologies and software applications.',
       icon: 'book-open',
       features: [

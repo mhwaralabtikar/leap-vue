@@ -720,3 +720,12 @@
 .leaflet-container{
   z-index: 1;
 }
+
+[dir='rtl'] {
+  .arrow-right, .lucide-arrow-right, .lucide-chevron-right {
+    @apply rotate-180;
+  }
+  .lucide-arrow-left, .lucide-chevron-left {
+    @apply -rotate-180;
+  }
+}

@@ -6,13 +6,13 @@
       :subtitle="$t('projects.subtitle')"
       :badge="$t('projects.ourProjects')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="https://picsum.photos/id/1076/1920/1080"
+      backgroundImage="/covers/projects.jpg"
     >
       <template #actions>
         <div class="flex flex-wrap gap-4 justify-center">
           <RouterLink to="/services" class="inline-flex items-center bg-primary/10 hover:bg-primary/20 text-primary border border-primary/20 px-6 py-2 rounded-lg transition-colors dark:bg-white/10 dark:hover:bg-white/20 dark:text-white dark:border-white/20">
             {{ $t('projects.viewServices') }}
-            <ChevronRightIcon class="h-4 w-4 ms-2 rtl:rotate-180" />
+            <ChevronRightIcon class="h-4 w-4 ms-2" />
           </RouterLink>
         </div>
       </template>
@@ -33,7 +33,7 @@
           </div>
 
           <!-- Filters -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 items-center">
             <div>
               <label class="block text-sm font-medium mb-2">{{ $t('projects.category') }}</label>
               <select 
@@ -63,13 +63,13 @@
               </select>
             </div>
             <div>
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between gap-3">
                 <button 
                   @click="resetFilters" 
                   class="mt-8 text-primary hover:text-primary/80 text-sm font-medium flex items-center"
                 >
-                  <RefreshCwIcon class="h-3 w-3 me-1 rtl:me-0 rtl:ms-1" />
-                  {{ $t('projects.resetFilters') }}
+                  <RefreshCwIcon class="h-3 w-3 me-2" />
+                  <span>{{ $t('projects.resetFilters') }}</span>
                 </button>
               </div>
             </div>

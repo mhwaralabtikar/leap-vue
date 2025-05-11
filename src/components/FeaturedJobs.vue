@@ -57,7 +57,7 @@
         class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary hover:bg-primary/90 text-white transition-all shadow-sm hover:shadow-md font-medium focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-background group"
       >
         {{ $t('jobs.viewAllJobs') }}
-        <ArrowRightIcon class="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
+        <ArrowRightIcon class="ms-2 h-4 w-4 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
       </RouterLink>
     </div>
   </div>

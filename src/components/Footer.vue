@@ -6,7 +6,7 @@
         <div>
           <div class="flex items-center mb-6">
             <img :src="logoPath" alt="Leap PM" class="h-10 w-auto filter brightness-0 invert" />
-            <span :class="{'ms-2': !isRtl, 'me-2': isRtl, 'text-xl font-bold': true}">LEAP PM</span>
+            <!-- <span :class="{'ms-2': !isRtl, 'me-2': isRtl, 'text-xl font-bold': true}">LEAP PM</span> -->
           </div>
           <p class="text-white/80 mb-6">
             {{ $t('footer.companyDescription') }}
@@ -160,5 +160,5 @@ import { useThemeStore } from '../stores/theme'
 const { t } = useI18n()
 const themeStore = useThemeStore()
 const isRtl = computed(() => themeStore.locale === 'ar')
-const logoPath = '/images/logo.png'
+const logoPath = '/logo/logo-white.png'
 </script> 

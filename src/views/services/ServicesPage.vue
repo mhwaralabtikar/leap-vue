@@ -6,7 +6,7 @@
       :subtitle="$t('services.subtitle')"
       :badge="$t('services.whatWeDo')"
       :breadcrumbs="breadcrumbs"
-      backgroundImage="https://picsum.photos/id/238/1920/1080"
+      backgroundImage="/covers/Services.jpg"
     >
       <template #actions>
         <div class="flex flex-wrap gap-4 justify-center">

@@ -1,5 +1,5 @@
 <template>
-  <div class="group rounded-lg shadow-md bg-white dark:bg-card border border-transparent dark:border-border/30 hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg p-6">
+  <div class="group p-3 scale-[0.98] rounded-lg shadow-md bg-white dark:bg-card border border-transparent dark:border-border/30 hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg p-6">
     <!-- Top section with job title and company logo -->
     <div class="flex items-start justify-between mb-4">
       <div>
