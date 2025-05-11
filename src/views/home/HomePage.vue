@@ -49,7 +49,7 @@
                 </div>
                 <div>
                   <h3 class="font-semibold text-xl mb-2">{{ $t('about.tabs.values') }}</h3>
-                  <p class="text-foreground/70 dark:text-foreground/80 leading-relaxed">{{ $t('about.values.integrity') }}</p>
+                  <p class="text-foreground/70 dark:text-foreground/80 leading-relaxed">{{ $t('about.values.integrityContent') }}</p>
                 </div>
               </div>
             </div>
